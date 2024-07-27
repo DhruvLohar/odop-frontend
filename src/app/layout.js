@@ -3,16 +3,18 @@ import { ThemeProvider } from "@/context/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import Navbar from "@/components/custom/Navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata = {
   title: "ODOP",
-  description: "ODOP Initiative for local artisans helping them scale thier dreams",
+  description:
+    "ODOP Initiative for local artisans helping them scale thier dreams",
 };
 
 export default function RootLayout({ children }) {
@@ -20,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          " min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
@@ -30,6 +32,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
 
           <Toaster />
