@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
+
 const userLinks = [
   { name: "My Profile", url: "/" },
   { name: "Crowd Fundings", url: "/" },
@@ -21,60 +23,30 @@ const artisanLinks = [
   { name: "Rental Machines", url: "/" },
   { name: "Inter District Collab", url: "/" },
 ];
-const Navbar = () => {
-  const [Open, setOpen] = useState(false);
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const userType = "artisan";
   const links = userType === "artisan" ? artisanLinks : userLinks;
 
   return (
     <>
       <div
-        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 ${
-          Open ? "bg-transparent" : "bg-white"
-        } z-20`}
+        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 ${open ? "bg-transparent" : "bg-white"
+          } z-20`}
       >
         <Image src="/odopLogo.png" height={100} width={100} />
         <button onClick={() => setOpen((prev) => !prev)}>
-          {Open ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-x"
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
+          {open ? (
+            <X />
           ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-align-justify"
-            >
-              <line x1="3" x2="21" y1="6" y2="6" />
-              <line x1="3" x2="21" y1="12" y2="12" />
-              <line x1="3" x2="21" y1="18" y2="18" />
-            </svg>
+            <Menu />
           )}
         </button>
       </div>
       <div
-        className={`flex flex-col items-start justify-start absolute top-0 space-y-10 py-20 p-6 h-full w-full bg-black/80 z-10 ${
-          Open ? "" : "hidden"
-        }`}
+        className={`flex flex-col items-start justify-start absolute top-0 space-y-10 py-20 p-6 h-full w-full bg-black/80 z-10 ${open ? "" : "hidden"
+          }`}
       >
         {links.map((link) => (
           <Link
@@ -95,5 +67,3 @@ const Navbar = () => {
     </>
   );
 };
-
-export default Navbar;
