@@ -29,8 +29,8 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 bg-${
-          Open ? "transparent" : "white"
+        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 ${
+          Open ? "bg-transparent" : "bg-white"
         } z-20`}
       >
         <Image src="/odopLogo.png" height={100} width={100} />
@@ -80,13 +80,15 @@ const Navbar = () => {
           <Link
             href={link.url}
             key={link.url}
-            className={`text-2xl text-white font-black `}
+            // className={`text-2xl text-white font-black `}
             onClick={() => {
               setOpen((prev) => !prev);
               setActiveLink(link.url);
             }}
           >
-            {link.name}
+            <h2 className="scroll-m-20 text-white text-3xl font-bold tracking-tight first:mt-0">
+              {link.name}
+            </h2>
           </Link>
         ))}
       </div>
