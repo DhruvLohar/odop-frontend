@@ -2,7 +2,7 @@ import React from "react";
 import DistrictSearch from "@/components/custom/DistrictSearch";
 import { Button } from "@/components/ui/button";
 import FilterSelect from "@/components/custom/Select";
-import Image from "next/image";
+import Link from "next/link";
 import {
   Sheet,
   SheetClose,
@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/card";
 import { Filter } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import ImageCollage from "@/components/custom/ImageCollage";
 
 const districtsList = [
   { value: "district1", label: "District 1" },
@@ -133,77 +134,32 @@ export default function AllDistrictView() {
             </Sheet>
           </div>
         </section>
-        <section className="w-full flex flex-col lg:flex-row space-y-4 py-4">
+        <section className="w-full flex flex-col lg:flex-row lg:flex-wrap lg:justify-between space-y-4 lg:space-y-0 lg:space-x-1 py-4">
           {cardData.map((card) => (
-            <Card key={card.id} className="w-full lg:w-1/3 bg-gray-100">
-              <CardContent>
-                <div className="w-full flex overflow-x-auto space-x-2 py-5 flex-shrink-0">
-                  {card.images.map((image, index) => (
-                    <>
-                      {index % 4 === 0 && (
-                        <div className="h-[25vh] w-[30vw] relative flex-shrink-0">
-                          <Image
-                            src={image}
-                            fill={true}
-                            className="object-cover rounded-lg"
-                            alt={`${card.title} image ${index + 1}`}
-                          />
-                        </div>
-                      )}
-                      {index % 4 === 1 && (
-                        <div className="flex flex-col h-[24vh] space-y-2">
-                          <div className="h-1/2 w-[35vw] relative flex-shrink-0">
-                            <Image
-                              src={image}
-                              fill={true}
-                              className="object-cover rounded-lg"
-                              alt={`${card.title} image ${index + 1}`}
-                            />
-                          </div>
-                          <div className="h-1/2 w-[35vw] relative flex-shrink-0">
-                            <Image
-                              src={
-                                card.images[(index + 1) % card.images.length]
-                              }
-                              fill={true}
-                              className="object-cover rounded-lg"
-                              alt={`${card.title} image ${index + 2}`}
-                            />
-                          </div>
-                        </div>
-                      )}
-                      {index % 4 === 3 && (
-                        <div className="h-[25vh] w-[40vw] relative flex-shrink-0">
-                          <Image
-                            src={image}
-                            fill={true}
-                            className="object-cover rounded-lg"
-                            alt={`${card.title} image ${index + 1}`}
-                          />
-                        </div>
-                      )}
-                    </>
+            <Card key={card.id} className="w-full lg:w-[25%] bg-gray-100">
+              <Link href={`/districts/${card.title}`}>
+                <CardContent>
+                  <ImageCollage individualCardData={card} />
+                  <div className="flex flex-col items-start text-left space-y-2">
+                    <CardTitle className="scroll-m-20 text-2xl font-semibold tracking-tight">
+                      {card.title}
+                    </CardTitle>
+                    <CardDescription className="text-justify font-normal text-gray-600">
+                      {card.description}
+                    </CardDescription>
+                  </div>
+                </CardContent>
+                <CardFooter className="space-x-2">
+                  {card.badges.map((badge, index) => (
+                    <Badge
+                      key={index}
+                      className="px-3 py-2 bg-gray-300 text-black"
+                    >
+                      {badge}
+                    </Badge>
                   ))}
-                </div>
-                <div className="flex flex-col items-start text-left space-y-2">
-                  <CardTitle className="scroll-m-20 text-2xl font-semibold tracking-tight">
-                    {card.title}
-                  </CardTitle>
-                  <CardDescription className="text-justify font-normal text-gray-600">
-                    {card.description}
-                  </CardDescription>
-                </div>
-              </CardContent>
-              <CardFooter className="space-x-2">
-                {card.badges.map((badge, index) => (
-                  <Badge
-                    key={index}
-                    className="px-3 py-2 bg-gray-300 text-black"
-                  >
-                    {badge}
-                  </Badge>
-                ))}
-              </CardFooter>
+                </CardFooter>
+              </Link>
             </Card>
           ))}
         </section>
