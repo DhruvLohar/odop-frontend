@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Image from "next/image";
+import Link from "next/link";
 
 const cardData = [
   {
@@ -30,7 +31,7 @@ const cardData = [
       "/artisanProfileImage1.png",
       "/artisanProfileImage2.png",
     ],
-    productDummyData: [
+    productBriefData: [
       {
         id: 1,
         title: "Product 1",
@@ -82,7 +83,7 @@ const cardData = [
       "/artisanProfileImage1.png",
       "/artisanProfileImage2.png",
     ],
-    productDummyData: [
+    productBriefData: [
       {
         id: 1,
         title: "Product 1",
@@ -134,7 +135,7 @@ const cardData = [
       "/artisanProfileImage1.png",
       "/artisanProfileImage2.png",
     ],
-    productDummyData: [
+    productBriefData: [
       {
         id: 1,
         title: "Product 1",
@@ -206,27 +207,29 @@ export default function DistrictView({ params }) {
           </h3>
           <Carousel opts={{ dragFree: true }}>
             <CarouselContent className="w-full flex space-x-4 py-5 px-2">
-              {individualCardData.productDummyData.map((item) => (
+              {individualCardData.productBriefData.map((item) => (
                 <Card
                   key={item.id}
                   className="w-[35vw] border-none shadow-none flex-shrink-0"
                 >
-                  <CardHeader className="h-[20vh] w-full relative">
-                    <Image
-                      src={item.image}
-                      fill={true}
-                      className="object-cover rounded-lg"
-                      alt={item.title}
-                    />
-                  </CardHeader>
-                  <CardContent className="flex flex-col items-start text-left w-full px-0 py-4 space-y-2">
-                    <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight text-gray-700">
-                      {item.title}
-                    </CardTitle>
-                    <CardDescription className="text-justify font-normal text-xxs text-gray-600">
-                      {item.description}
-                    </CardDescription>
-                  </CardContent>
+                  <Link href={`/product/${item.title}`}>
+                    <CardHeader className="h-[20vh] w-full relative">
+                      <Image
+                        src={item.image}
+                        fill={true}
+                        className="object-cover rounded-lg"
+                        alt={item.title}
+                      />
+                    </CardHeader>
+                    <CardContent className="flex flex-col items-start text-left w-full px-0 py-4 space-y-2">
+                      <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight text-gray-700">
+                        {item.title}
+                      </CardTitle>
+                      <CardDescription className="text-justify font-normal text-xxs text-gray-600">
+                        {item.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Link>
                 </Card>
               ))}
             </CarouselContent>
