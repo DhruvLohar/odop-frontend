@@ -134,9 +134,9 @@ export default function AllDistrictView() {
             </Sheet>
           </div>
         </section>
-        <section className="w-full flex flex-col lg:flex-row lg:flex-wrap lg:justify-between space-y-4 lg:space-y-0 lg:space-x-1 py-4">
+        <section className="w-full flex flex-col space-y-4 py-4">
           {cardData.map((card) => (
-            <Card key={card.id} className="w-full lg:w-[25%] bg-gray-100">
+            <Card key={card.id} className="w-full bg-gray-100">
               <Link href={`/districts/${card.title}`}>
                 <CardContent>
                   <div className="w-screen -translate-x-12">
