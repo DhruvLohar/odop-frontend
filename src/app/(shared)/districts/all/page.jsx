@@ -139,7 +139,9 @@ export default function AllDistrictView() {
             <Card key={card.id} className="w-full lg:w-[25%] bg-gray-100">
               <Link href={`/districts/${card.title}`}>
                 <CardContent>
-                  <ImageCollage individualCardData={card} />
+                  <div className="w-screen -translate-x-12">
+                    <ImageCollage individualCardData={card} />
+                  </div>
                   <div className="flex flex-col items-start text-left space-y-2">
                     <CardTitle className="scroll-m-20 text-2xl font-semibold tracking-tight">
                       {card.title}

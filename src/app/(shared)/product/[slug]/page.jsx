@@ -5,6 +5,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { IndianRupee, ShoppingCart } from "lucide-react";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
+import Link from "next/link";
 
 // Dummy data
 const products = [
@@ -175,9 +176,12 @@ function Page({ params }) {
                   </p>
                 </div>
               </div>
-              <Button className="py-8 bg-blue-950 text-white text-xl font-bold align-middle rounded-2xl">
+              <Link
+                className=" py-4 bg-blue-950 text-white text-xl font-bold align-middle rounded-2xl"
+                href={`/productArtisan/${product.artisan.name}`}
+              >
                 Visit Profile
-              </Button>
+              </Link>
             </>
           )}
         </section>
