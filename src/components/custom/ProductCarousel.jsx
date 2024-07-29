@@ -30,20 +30,18 @@ export default function ProductCarousel() {
   };
 
   return (
-    <>
-      <Carousel setApi={setApi} className="w-full">
-        <CarouselContent className="space-x-4 p-4">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <Card className="h-[35vh] w-[75vw] shrink-0 border-none shadow-none relative ">
-              <Image
-                src="/districtArtisanImage1.png"
-                fill={true}
-                className="object-cover rounded-xl"
-              />
-            </Card>
-          ))}
-        </CarouselContent>
-      </Carousel>
+    <Carousel setApi={setApi} className="w-full lg:w-[48vw] lg:h-[50vh]">
+      <CarouselContent className="space-x-4 py-4 px-5">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Card className="h-[35vh] lg:h-[50vh] w-[75vw] lg:w-[47vw] shrink-0 border-none shadow-none relative ">
+            <Image
+              src="/districtArtisanImage1.png"
+              fill={true}
+              className="object-cover rounded-xl"
+            />
+          </Card>
+        ))}
+      </CarouselContent>
       <div className="flex w-full space-x-3 justify-center py-2">
         {Array.from({ length: count }).map((_, index) => (
           <button
@@ -55,6 +53,6 @@ export default function ProductCarousel() {
           ></button>
         ))}
       </div>
-    </>
+    </Carousel>
   );
 }
