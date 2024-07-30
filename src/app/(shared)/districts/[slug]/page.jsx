@@ -179,30 +179,30 @@ export default function DistrictView({ params }) {
     <main>
       <center className="w-full h-fit p-5 space-y-4">
         <section className="w-full flex flex-col  space-y-4">
-          <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight text-left w-full">
+          <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold lg:font-bold tracking-tight text-left w-full">
             {individualCardData.title}
           </h2>
-          <p className="text-left font-normal text-gray-600">
+          <p className="text-left font-normal text-gray-600 lg:text-xl ">
             {individualCardData.description}
           </p>
           <ImageCollage individualCardData={individualCardData} />
         </section>
-        <section className="flex flex-col space-y-4">
-          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight text-left w-full">
+        <section className="flex flex-col space-y-4 py-4">
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight text-left w-full lg:text-3xl">
             Artisans
           </h3>
-          <div className="flex space-x-3 justify-evenly items-center w-full">
+          <div className="flex space-x-3 justify-evenly items-center w-full lg:justify-start">
             {individualCardData.artisanImages
               .slice(0, 5)
               .map((artisan, index) => (
-                <Avatar className="h-14 w-14" key={index}>
+                <Avatar className="h-14 w-14 lg:h-20 lg:w-20" key={index}>
                   <AvatarImage src={artisan} />
                 </Avatar>
               ))}
           </div>
         </section>
-        <section className="w-full flex flex-col ">
-          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight text-left w-full">
+        <section className="w-full flex flex-col py-4 space-y-4">
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight text-left w-full lg:text-3xl">
             Products
           </h3>
           <Carousel opts={{ dragFree: true }}>
@@ -210,10 +210,10 @@ export default function DistrictView({ params }) {
               {individualCardData.productBriefData.map((item) => (
                 <Card
                   key={item.id}
-                  className="w-[35vw] border-none shadow-none flex-shrink-0"
+                  className="w-[35vw] lg:w-[30vw] border-none shadow-none flex-shrink-0"
                 >
                   <Link href={`/product/${item.title}`}>
-                    <CardHeader className="h-[20vh] w-full relative">
+                    <CardHeader className="h-[20vh] lg:h-[45vh] w-full relative">
                       <Image
                         src={item.image}
                         fill={true}
@@ -222,10 +222,10 @@ export default function DistrictView({ params }) {
                       />
                     </CardHeader>
                     <CardContent className="flex flex-col items-start text-left w-full px-0 py-4 space-y-2">
-                      <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight text-gray-700">
+                      <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight text-gray-700 lg:text-2xl">
                         {item.title}
                       </CardTitle>
-                      <CardDescription className="text-justify font-normal text-xxs text-gray-600">
+                      <CardDescription className="text-justify font-normal text-xs text-gray-600 lg:text-base ">
                         {item.description}
                       </CardDescription>
                     </CardContent>

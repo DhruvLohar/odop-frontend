@@ -78,7 +78,7 @@ function Page({ params }) {
   return (
     <main>
       <center className="h-fit w-full px-5">
-        <section className="flex flex-col lg:flex-row w-full py-5 lg:pb-16 space-y-4 lg:space-x-4  items-start justify-center">
+        <section className="flex flex-col lg:flex-row w-full py-5 lg:pb-16 space-y-4 lg:space-x-4  items-start justify-center lg:justify-start">
           <ProductCarousel />
           <div className="flex flex-col space-y-6  ">
             <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold  lg:font-bold tracking-tight text-left w-full">
