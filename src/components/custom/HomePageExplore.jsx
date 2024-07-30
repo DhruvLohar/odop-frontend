@@ -1,107 +1,16 @@
 "use client";
 import { MapPin, IndianRupee } from "lucide-react";
 import React, { useState } from "react";
-const filterArray = ["Edibles", "Clothing", "Handicrafts"];
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Link from "next/link";
 
 // Dummy data
-const data = {
-  Edibles: [
-    {
-      id: 1,
-      name: "Mango",
-      location: "Ratnagiri, Maharashtra",
-      price: 200,
-      imageUrl: "/districtArtisanImage1.png",
-    },
-    {
-      id: 2,
-      name: "Banana",
-      location: "Pune, Maharashtra",
-      price: 50,
-      imageUrl: "/districtArtisanImage2.png",
-    },
-    {
-      id: 3,
-      name: "Apple",
-      location: "Shimla, Himachal Pradesh",
-      price: 150,
-      imageUrl: "/districtArtisanImage3.png",
-    },
-    {
-      id: 4,
-      name: "Grapes",
-      location: "Nashik, Maharashtra",
-      price: 120,
-      imageUrl: "/districtArtisanImage4.png",
-    },
-  ],
-  Clothing: [
-    {
-      id: 1,
-      name: "Saree",
-      location: "Chennai, Tamil Nadu",
-      price: 1200,
-      imageUrl: "/districtArtisanImage1.png",
-    },
-    {
-      id: 2,
-      name: "Kurta",
-      location: "Delhi",
-      price: 800,
-      imageUrl: "/districtArtisanImage2.png",
-    },
-    {
-      id: 3,
-      name: "T-shirt",
-      location: "Mumbai, Maharashtra",
-      price: 500,
-      imageUrl: "/districtArtisanImage3.png",
-    },
-    {
-      id: 4,
-      name: "Jeans",
-      location: "Bangalore, Karnataka",
-      price: 1000,
-      imageUrl: "/districtArtisanImage4.png",
-    },
-  ],
-  Handicrafts: [
-    {
-      id: 1,
-      name: "Clay Pot",
-      location: "Jaipur, Rajasthan",
-      price: 300,
-      imageUrl: "/districtArtisanImage1.png",
-    },
-    {
-      id: 2,
-      name: "Wooden Carving",
-      location: "Mysore, Karnataka",
-      price: 1500,
-      imageUrl: "/districtArtisanImage2.png",
-    },
-    {
-      id: 3,
-      name: "Bamboo Basket",
-      location: "Kolkata, West Bengal",
-      price: 250,
-      imageUrl: "/districtArtisanImage3.png",
-    },
-    {
-      id: 4,
-      name: "Terracotta Sculpture",
-      location: "Guwahati, Assam",
-      price: 2000,
-      imageUrl: "/districtArtisanImage4.png",
-    },
-  ],
-};
 
-function HomePageExplore() {
+const filterArray = ["Edibles", "Clothing", "Handicrafts"];
+
+function HomePageExplore({ exploreCategories }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const handleClick = (index) => {
     setActiveIndex(index);
@@ -130,12 +39,12 @@ function HomePageExplore() {
       </div>
       <Carousel opts={{ dragFree: true }}>
         <CarouselContent className="w-full flex space-x-4 p-5">
-          {data[filterArray[activeIndex]].map((product) => (
+          {exploreCategories[filterArray[activeIndex]].map((product) => (
             <Card
               key={product.id}
               className="w-[47vw] lg:w-[30vw] border-none shadow-none flex-shrink-0"
             >
-              <Link href={`/product/${product.id}`}>
+              <Link href={`/product/Product 1`}>
                 <CardHeader className="h-[20vh] lg:h-[45vh] w-full relative">
                   <Image
                     src={product.imageUrl}
