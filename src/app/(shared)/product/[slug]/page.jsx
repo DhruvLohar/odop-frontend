@@ -94,8 +94,8 @@ function Page({ params }) {
               </h2>
             </span>
             <div className="w-full hidden lg:flex space-x-2 justify-start items-center">
-              <Button className="px-14">Buy Now</Button>
-              <Button className="px-14 bg-white border-blue-950 border-2 text-blue-950">
+              <Button className="px-14 hover:bg-white hover:text-blue-950">Buy Now</Button>
+              <Button className="px-14 bg-white hover:text-white border-blue-950 border-2 text-blue-950">
                 Add To Cart
               </Button>
             </div>
@@ -150,7 +150,7 @@ function Page({ params }) {
                             {product.artisan.name}
                           </h2>
                         </div>
-                        <p className="text-xs lg:text-m h-full w-full text-left text-gray-500">
+                        <p className="text-xs lg:text-base md:text-sm  h-full w-full text-left text-gray-500">
                           Lorem ipsum dolor sit amet consectetur adipisicing
                           elit. Maxime, et dolores. Praesentium magnam eius
                           assumenda debitis possimus accusantium natus animi
@@ -167,8 +167,8 @@ function Page({ params }) {
                   </h3>
                   <div className="flex space-x-2 justify-start items-center w-full">
                     {product.artisan.otherArtisans.map((artisan, index) => (
-                      <Avatar className="h-14 w-14" key={index}>
-                        <AvatarImage src={artisan} />
+                      <Avatar className="lg:h-20 lg:w-20 w-14 h-14" key={index}>
+                        <AvatarImage className="object-cover" src={artisan} />
                       </Avatar>
                     ))}
                   </div>

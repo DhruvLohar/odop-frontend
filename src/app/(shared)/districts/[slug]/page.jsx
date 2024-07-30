@@ -196,7 +196,7 @@ export default function DistrictView({ params }) {
               .slice(0, 5)
               .map((artisan, index) => (
                 <Avatar className="h-14 w-14 lg:h-20 lg:w-20" key={index}>
-                  <AvatarImage src={artisan} />
+                  <AvatarImage className='object-cover' src={artisan} />
                 </Avatar>
               ))}
           </div>
