@@ -5,7 +5,7 @@ import { Carousel, CarouselContent } from "../ui/carousel";
 function ImageCollage({ individualCardData }) {
   return (
     <Carousel opts={{ dragFree: true }}>
-      <CarouselContent className="w-full flex space-x-2 py-5 px-2">
+      <CarouselContent className="w-full flex space-x-2 px-2">
         {individualCardData.images.map((image, index) => (
           <>
             {index % 4 === 0 && (

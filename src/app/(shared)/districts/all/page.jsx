@@ -93,14 +93,35 @@ const cardData = [
     ],
     badges: ["Textile", "Weaving"],
   },
+  {
+    id: 5,
+    title: "Jammu Kashmir",
+    description:
+      "The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.",
+    images: [
+      "/districtArtisanImage1.png",
+      "/districtArtisanImage2.png",
+      "/districtArtisanImage3.png",
+      "/districtArtisanImage4.png",
+      "/districtArtisanImage1.png",
+      "/districtArtisanImage2.png",
+      "/districtArtisanImage3.png",
+      "/districtArtisanImage4.png",
+    ],
+    badges: ["Wooden Toy Art", "Craftsmanship"],
+  },
 ];
 
 export default function AllDistrictView() {
   return (
     <main>
-      <center className="w-full h-fit p-5">
+      <center className="w-full h-fit lg:px-10 p-5">
         <section className="w-full flex justify-between space-x-4 items-center">
-          <DistrictSearch districts={districtsList} />
+          <div>
+            <DistrictSearch districts={districtsList} />
+          </div>
+
+
           <div>
             <Sheet>
               <SheetTrigger asChild>
@@ -138,15 +159,15 @@ export default function AllDistrictView() {
             </Sheet>
           </div>
         </section>
-        <section className="w-full flex flex-col space-y-4 py-4">
+        <section className="w-full justify-between items-center flex flex-wrap space-y-4 lg:space-x-2 lg:space-y-0 py-4">
           {cardData.map((card) => (
-            <Card key={card.id} className="w-full">
+            <Card key={card.id} className="w-full md:w-[49%] md:my-9 bg-gray-100">
               <Link href={`/districts/${card.title}`}>
                 <CardContent>
-                  <div className="w-screen -translate-x-12">
-                    <ImageCollage individualCardData={card} />
-                  </div>
-                  <div className="flex flex-col items-start text-left space-y-2">
+                 
+                  <ImageCollage individualCardData={card} />
+                  
+                  <div className="flex flex-col items-start text-left space-y-2 p-3">
                     <CardTitle className="scroll-m-20 text-2xl font-semibold tracking-tight">
                       {card.title}
                     </CardTitle>
@@ -155,11 +176,11 @@ export default function AllDistrictView() {
                     </CardDescription>
                   </div>
                 </CardContent>
-                <CardFooter className="space-x-2">
+                <CardFooter className="px-2 space-x-2">
                   {card.badges.map((badge, index) => (
                     <Badge
                       key={index}
-                      className="px-3 py-2 bg-gray-300 text-black"
+                      className="px-6 py-2 bg-gray-300 text-black"
                     >
                       {badge}
                     </Badge>
