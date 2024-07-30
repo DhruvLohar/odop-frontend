@@ -32,27 +32,24 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 ${open ? "bg-transparent" : "bg-white"
-          } z-20`}
+        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 ${
+          open ? "bg-transparent" : "bg-white"
+        } z-20`}
       >
         <Image src="/odopLogo.png" height={100} width={100} />
         <button onClick={() => setOpen((prev) => !prev)}>
-          {open ? (
-            <X />
-          ) : (
-            <Menu />
-          )}
+          {open ? <X color="#ffffff" /> : <Menu />}
         </button>
       </div>
       <div
-        className={`flex flex-col items-start justify-start absolute top-0 space-y-10 py-20 p-6 h-full w-full bg-black/80 z-10 ${open ? "" : "hidden"
-          }`}
+        className={`flex flex-col items-start justify-start fixed top-0 space-y-10 py-20 p-6 h-full w-full bg-black/80 z-10 ${
+          open ? "" : "hidden"
+        }`}
       >
         {links.map((link) => (
           <Link
             href={link.url}
             key={link.url}
-            // className={`text-2xl text-white font-black `}
             onClick={() => {
               setOpen((prev) => !prev);
               setActiveLink(link.url);
@@ -66,4 +63,4 @@ export default function Navbar() {
       </div>
     </>
   );
-};
+}
