@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`w-full h-full flex justify-between items-center px-6 py-3 sticky top-0 bg-white z-20`}>
+      <div className={`w-full h-full flex justify-between items-center px-1 lg:px-6 py-3 sticky top-0 bg-white z-20`}>
         <div className="flex items-center">
           <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
         </div>

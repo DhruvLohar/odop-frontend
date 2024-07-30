@@ -1,14 +1,15 @@
-import { Plus_Jakarta_Sans as FontSans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/context/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Navbar from "@/components/custom/Navbar";
 
-const fontSans = FontSans({
+const fontSans = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight:["100", "200", "300", "400", "500", "600", "700"]
 });
 
 export const metadata = {
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
       <body
         className={cn(
           " min-h-screen px-5 bg-background antialiased",
-          fontSans.variable
+          fontSans.className
         )}
       >
         <ThemeProvider

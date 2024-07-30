@@ -5,6 +5,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Link from "next/link";
+import ProductCard from "./ProductCard";
 
 // Dummy data
 
@@ -17,12 +18,20 @@ function HomePageExplore({ exploreCategories }) {
   };
 
   return (
-    <section className="flex flex-col w-full">
+    <>
+      <div className="flex justify-between items-center py-1 lg:py-3">
+        <h2 className="text-lg lg:text-3xl text-blue-950 md:font-semibold font-medium tracking-tight">
+              Explore
+            </h2>
+            <Link href={"/product/all/"} className="text-sm h-fit text-left md:text-base text-gray-600 cursor-pointer">
+              See More
+            </Link>
+        </div>
       <div className="relative w-full flex justify-start items-center space-x-4">
         {filterArray.map((filter, index) => (
           <div key={index} className="flex flex-col items-start">
             <button
-              className={`text-lg h-fit font-medium text-left lg:text-xl ${
+              className={`text-xs h-fit font-medium text-left lg:text-sm ${
                 index === activeIndex ? "text-[#FAA643]" : "text-gray-600"
               }`}
               onClick={() => handleClick(index)}
@@ -40,42 +49,11 @@ function HomePageExplore({ exploreCategories }) {
       <Carousel opts={{ dragFree: true }}>
         <CarouselContent className="w-full flex space-x-4 p-5">
           {exploreCategories[filterArray[activeIndex]].map((product) => (
-            <Card
-              key={product.id}
-              className="w-[47vw] lg:w-[30vw] border-none shadow-none flex-shrink-0"
-            >
-              <Link href={`/product/Product 1`}>
-                <CardHeader className="h-[20vh] lg:h-[45vh] w-full relative">
-                  <Image
-                    src={product.imageUrl}
-                    fill={true}
-                    className="object-cover rounded-lg"
-                    alt={product.name}
-                  />
-                </CardHeader>
-                <CardContent className="flex flex-col items-start text-left w-full py-4 px-0 space-y-1">
-                  <h4 className="scroll-m-20 text-lg lg:text-2xl font-medium tracking-tight">
-                    {product.name}
-                  </h4>
-                  <span className="w-full space-x-1 flex items-center">
-                    <MapPin color="#9ca3af" size={18} />
-                    <p className="scroll-m-20 text-xs lg:text-lg font-normal tracking-tight text-gray-600">
-                      {product.location}
-                    </p>
-                  </span>
-                  <span className="w-full space-x-1 flex items-center">
-                    <IndianRupee size={20} strokeWidth={2} />
-                    <h2 className="scroll-m-20 text-lg lg:text-2xl font-semibold lg:font-bold tracking-tight text-left w-full">
-                      {product.price}
-                    </h2>
-                  </span>
-                </CardContent>
-              </Link>
-            </Card>
+            <ProductCard product={product}/>
           ))}
         </CarouselContent>
       </Carousel>
-    </section>
+      </>
   );
 }
 
