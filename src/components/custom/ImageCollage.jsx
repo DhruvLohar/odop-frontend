@@ -9,7 +9,7 @@ function ImageCollage({ individualCardData }) {
         {individualCardData.images.map((image, index) => (
           <>
             {index % 4 === 0 && (
-              <div className="h-[25vh] md:h-[48vh] w-[30vw] relative flex-shrink-0">
+              <div className="h-[25vh] md:h-[47vh] w-[30vw] relative flex-shrink-0">
                 <Image
                   src={image}
                   fill={true}

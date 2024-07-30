@@ -87,9 +87,9 @@ function Page({ params }) {
             <p className="text-xs lg:text-lg text-justify lg:font-m font-light text-gray-600 lg:leading-7">
               {product.description}
             </p>
-            <span className="hidden lg:flex text-2xl font-bold items-center w-fit">
-              <IndianRupee size={50} strokeWidth={2.8} />
-              <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold  lg:font-bold tracking-tight text-left w-full">
+            <span className="hidden lg:flex text-2xl font-bold items-center justify-start w-full">
+              <IndianRupee size={35} strokeWidth={2} />
+              <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold lg:font-bold tracking-tight text-left w-full">
                 {product.price}
               </h2>
             </span>
@@ -197,7 +197,7 @@ function Page({ params }) {
                 </div>
               </div>
               <Link
-                className=" py-4 bg-blue-950 text-white text-xl font-bold align-middle rounded-2xl lg:hidden"
+                className=" py-3 bg-blue-950 text-white text-xl font-bold align-middle rounded-2xl lg:hidden"
                 href={`/productArtisan/${product.artisan.name}`}
               >
                 Visit Profile
