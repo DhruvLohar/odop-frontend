@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X ,Bell} from "lucide-react";
 
 const userLinks = [
   { name: "My Profile", url: "/" },
@@ -27,38 +27,45 @@ const artisanLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const userType = "artisan";
-  const links = userType === "artisan" ? artisanLinks : userLinks;
+  const links = userType === "artisan" ? userLinks : artisanLinks;
 
   return (
     <>
-      <div
-        className={`w-full h-full flex justify-between px-6 py-3 sticky top-0 ${
-          open ? "bg-transparent" : "bg-white"
-        } z-20`}
-      >
-        <Image src="/odopLogo.png" height={100} width={100} />
-        <button onClick={() => setOpen((prev) => !prev)}>
-          {open ? <X color="#ffffff" /> : <Menu />}
-        </button>
+      <div className={`w-full h-full flex justify-between items-center px-6 py-3 sticky top-0 bg-white z-20`}>
+        <div className="flex items-center">
+          <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
+        </div>
+        <div className="hidden md:flex space-x-6">
+          {links.map((link) => (
+            <Link href={link.url} key={link.url} className="text-black text-sm">
+              {link.name}
+            </Link>
+          ))}
+        </div>
+        <div className="flex items-center">
+          <Link href={"/notification"} className="text-black text-lg"><Bell /></Link>
+          <button onClick={() => setOpen((prev) => !prev)} className="ml-4 md:hidden">
+            {open ? <X color="#000000" /> : <Menu />}
+          </button>
+        </div>
       </div>
       <div
-        className={`flex flex-col items-start justify-start fixed top-0 space-y-10 py-20 p-6 h-full w-full bg-black/80 z-10 ${
+        className={`fixed top-0 py-20 p-3 h-full w-full bg-gray-800 z-10 ${
           open ? "" : "hidden"
         }`}
       >
         {links.map((link) => (
+          <div className="hover:bg-slate-950 rounded-lg w-full p-3 flex justify-center mb-1 ">
+
           <Link
             href={link.url}
             key={link.url}
-            onClick={() => {
-              setOpen((prev) => !prev);
-              setActiveLink(link.url);
-            }}
+            onClick={() => setOpen(false)}
+            className="text-white text-xl"
           >
-            <h2 className="scroll-m-20 text-white text-3xl font-bold tracking-tight first:mt-0">
-              {link.name}
-            </h2>
+            {link.name}
           </Link>
+          </div>
         ))}
       </div>
     </>

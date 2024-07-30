@@ -140,7 +140,7 @@ export default function AllDistrictView() {
         </section>
         <section className="w-full flex flex-col space-y-4 py-4">
           {cardData.map((card) => (
-            <Card key={card.id} className="w-full bg-gray-100">
+            <Card key={card.id} className="w-full">
               <Link href={`/districts/${card.title}`}>
                 <CardContent>
                   <div className="w-screen -translate-x-12">
