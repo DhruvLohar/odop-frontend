@@ -59,6 +59,7 @@ export default function ArtisanProfile({ params }) {
 
   const description = artisanInfo.find((artisan) => artisan.title === title);
 
+  console.log(description)
   return (
     <main>
       <center className="w-full h-fit">

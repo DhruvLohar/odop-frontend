@@ -6,57 +6,152 @@ import { Button } from "@/components/ui/button";
 import { IndianRupee, ShoppingCart } from "lucide-react";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+
 
 // Dummy data
 const products = [
   {
-    title: "Product 1",
+    title: "Wood Craft",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat unde veritatis adipisci quis porro error tempore id perspiciatis minima ad reiciendis, nostrum amet sit aperiam, vel quae commodi incidunt. Voluptate laborum praesentium officia? Minima, eum quisquam! Molestias cum non vitae?",
+      "This exquisite wooden sculpture is a testament to fine craftsmanship. Made from premium quality oak wood, it is a perfect addition to any home decor, embodying both elegance and cultural heritage.",
     details: [
-      "Lorem ipsum dolor sit amet.",
-      "Lorem ipsum dolor sit amet.",
-      "Lorem ipsum dolor sit amet.",
-      "Lorem ipsum dolor sit amet.",
+      { label: "Material", value: "Oak Wood" },
+      { label: "Dimensions", value: "12 x 8 x 6 inches" },
+      { label: "Weight", value: "2 kg" },
+      { label: "Origin", value: "Bali, Indonesia" },
     ],
     artisan: {
       name: "Mr. John Doe",
       profileImage: "/artisanProfileImage1.png",
       about:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, tenetur reprehenderit provident impedit optio delectus voluptates",
+        "Mr. Arya is a master woodcarver with over 25 years of experience. His works are renowned for their intricate details and cultural significance, reflecting the rich heritage of Balinese art.",
       otherArtisans: [
-        "/artisanProfileImage1.png",
         "/artisanProfileImage2.png",
         "/artisanProfileImage3.png",
-        "/artisanProfileImage1.png",
+        "/artisanProfileImage4.png",
       ],
     },
-    price: 500,
+    price: 1200,
   },
   {
-    title: "Product 2",
-    description: "Different product description here.",
+    title: "Wood Toy",
+    description:
+      "A delightful traditional wooden toy, crafted with care to bring joy to children and adults alike. Made from safe, non-toxic materials, this toy is both fun and educational.",
     details: [
-      "Another detail 1.",
-      "Another detail 2.",
-      "Another detail 3.",
-      "Another detail 4.",
+      { label: "Material", value: "Pine Wood" },
+      { label: "Dimensions", value: "6 x 4 x 3 inches" },
+      { label: "Weight", value: "500 g" },
+      { label: "Origin", value: "Kyoto, Japan" },
     ],
     artisan: {
-      name: "Ms. Jane Doe",
+      name: "Ms. Sakura Yamamoto",
       profileImage: "/artisanProfileImage2.png",
-      about: "Another artisan's description.",
+      about:
+        "Ms. Yamamoto specializes in crafting traditional Japanese toys. Her creations are known for their durability and attention to detail, preserving the charm of old-world craftsmanship.",
+      otherArtisans: [
+        "/artisanProfileImage1.png",
+        "/artisanProfileImage3.png",
+        "/artisanProfileImage4.png",
+      ],
+    },
+    price: 300,
+  },
+  {
+    title: "Wood Tabla",
+    description:
+      "This beautifully crafted wooden tabla is designed for music enthusiasts. It is made from high-quality teak wood, offering excellent sound resonance and durability.",
+    details: [
+      { label: "Material", value: "Teak Wood" },
+      { label: "Dimensions", value: "14 x 14 x 12 inches" },
+      { label: "Weight", value: "3 kg" },
+      { label: "Origin", value: "Varanasi, India" },
+    ],
+    artisan: {
+      name: "Mr. Ravi Shankar",
+      profileImage: "/artisanProfileImage3.png",
+      about:
+        "Mr. Shankar is a skilled musician and craftsman from Varanasi, India. With a deep understanding of musical instruments, he ensures each piece delivers superior sound quality.",
+      otherArtisans: [
+        "/artisanProfileImage1.png",
+        "/artisanProfileImage2.png",
+        "/artisanProfileImage4.png",
+      ],
+    },
+    price: 1500,
+  },
+  {
+    title: "Grapes",
+    description:
+      "Fresh, organic grapes sourced directly from local farms. These grapes are known for their sweetness and juiciness, perfect for healthy snacking or adding to your favorite dishes.",
+    details: [
+      { label: "Variety", value: "Thompson Seedless" },
+      { label: "Weight", value: "500 g per bunch" },
+      { label: "Origin", value: "Nashik, India" },
+      { label: "Organic", value: "Yes" },
+    ],
+    artisan: {
+      name: "Mr. Ajay Kumar",
+      profileImage: "/artisanProfileImage4.png",
+      about:
+        "Ajay Kumar is a dedicated farmer from Nashik, India, specializing in organic grape cultivation. His commitment to sustainable farming practices ensures the highest quality produce.",
       otherArtisans: [
         "/artisanProfileImage1.png",
         "/artisanProfileImage2.png",
         "/artisanProfileImage3.png",
-        "/artisanProfileImage1.png",
       ],
     },
-    price: 700,
+    price: 120,
   },
-  // Add more products as needed
+  {
+    title: "Orange",
+    description:
+      "Juicy and tangy oranges, perfect for refreshing juices or as a healthy snack. These oranges are handpicked to ensure the best quality and flavor.",
+    details: [
+      { label: "Variety", value: "Nagpur Oranges" },
+      { label: "Weight", value: "1 kg per dozen" },
+      { label: "Origin", value: "Nagpur, India" },
+      { label: "Organic", value: "Yes" },
+    ],
+    artisan: {
+      name: "Ms. Lata Sharma",
+      profileImage: "/artisanProfileImage5.png",
+      about:
+        "Lata Sharma is a passionate farmer from Nagpur, India, known for her expertise in cultivating high-quality oranges. She follows organic farming practices to ensure fresh and healthy produce.",
+      otherArtisans: [
+        "/artisanProfileImage1.png",
+        "/artisanProfileImage2.png",
+        "/artisanProfileImage3.png",
+      ],
+    },
+    price: 80,
+  },
+  {
+    title: "Pineapple",
+    description:
+      "Sweet and tangy pineapples grown in the tropical climate of Goa. These pineapples are perfect for enjoying fresh or adding to your favorite recipes.",
+    details: [
+      { label: "Variety", value: "Queen Pineapple" },
+      { label: "Weight", value: "1.5 kg each" },
+      { label: "Origin", value: "Goa, India" },
+      { label: "Organic", value: "Yes" },
+    ],
+    artisan: {
+      name: "Mr. Rajesh Naik",
+      profileImage: "/artisanProfileImage6.png",
+      about:
+        "Rajesh Naik is an experienced farmer from Goa, India, specializing in pineapple cultivation. His dedication to organic farming ensures the best quality fruits with rich flavor.",
+      otherArtisans: [
+        "/artisanProfileImage1.png",
+        "/artisanProfileImage2.png",
+        "/artisanProfileImage3.png",
+      ],
+    },
+    price: 60,
+  },
 ];
+
+
 
 const filterArray = ["Product Details", "About Artisan"];
 
@@ -77,25 +172,31 @@ function Page({ params }) {
 
   return (
     <main>
-      <center className="h-fit w-full px-5">
-        <section className="flex flex-col lg:flex-row w-full py-5 lg:pb-16 space-y-4 lg:space-x-4  items-start justify-center lg:justify-start">
+      <center className="h-fit w-full px-5 md:px-10">
+        <section className="flex flex-col lg:flex-row w-full py-5 lg:pb-16 space-y-4 lg:space-x-4  items-start lg:items-center justify-center lg:justify-start">
           <ProductCarousel />
-          <div className="flex flex-col space-y-6  ">
+          <div className="flex flex-col space-y-4">
+            <span className="hidden lg:flex text-2xl font-bold items-center justify-start w-full">
+              <IndianRupee size={50} strokeWidth={2} />
+              <h2 className="scroll-m-20 text-3xl lg:text-6xl font-semibold lg:font-light tracking-tight text-left w-full">
+                {product.price}
+              </h2>
+              </span>
             <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold  lg:font-bold tracking-tight text-left w-full">
               {product.title}
             </h2>
-            <p className="text-xs lg:text-lg text-justify lg:font-m font-light text-gray-600 lg:leading-7">
+            <Badge
+              className="px-4 w-fit py-2 bg-gray-300 text-black"
+                    >
+                      Wooden
+                    </Badge>
+            <p className="text-sm lg:text-base text-justify lg:font-m font-light text-gray-600 lg:leading-7">
               {product.description}
             </p>
-            <span className="hidden lg:flex text-2xl font-bold items-center justify-start w-full">
-              <IndianRupee size={35} strokeWidth={2} />
-              <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold lg:font-bold tracking-tight text-left w-full">
-                {product.price}
-              </h2>
-            </span>
+            
             <div className="w-full hidden lg:flex space-x-2 justify-start items-center">
-              <Button className="px-14 hover:bg-white hover:text-blue-950">Buy Now</Button>
-              <Button className="px-14 bg-white hover:text-white border-blue-950 border-2 text-blue-950">
+              <Button className="px-14 ">Buy Now</Button>
+              <Button className="px-14 bg-white  hover:bg-gray-100 border-blue-950 border-2 text-blue-950">
                 Add To Cart
               </Button>
             </div>
@@ -103,18 +204,17 @@ function Page({ params }) {
         </section>
         <section className="flex flex-col w-full">
           <div
-            className="relative w-full flex justify-start items-center space-x-2 py-4"
-            style={{ boxShadow: "inset rgb(199 195 195) 0px -2px 0px" }}
+            className="relative w-full flex justify-start items-center space-x-5 py-4"
           >
             {filterArray.map((filter, index) => (
               <div key={index}>
                 <button
-                  className="text-m h-full font-bold content-center flex flex-col items-center px-3 lg:text-2xl"
+                  className="text-m h-full font-bold content-center flex flex-col items-center lg:text-2xl"
                   onClick={() => handleClick(index)}
                 >
                   {filter}
                   <span
-                    className={`absolute w-[9rem] lg:w-[11rem] h-[3px] bottom-0 ${
+                    className={`absolute w-[7rem] lg:w-[12rem] h-[3px] bottom-0 ${
                       index === activeIndex ? "bg-blue-900" : ""
                     }`}
                   ></span>
@@ -130,19 +230,22 @@ function Page({ params }) {
                 <p className="font-base text-justify">{product.description}</p>
                 <ul className="list-disc pl-5">
                   {product.details.map((detail, index) => (
-                    <li key={index}>{detail}</li>
+                    <li key={index}><span className="font-bold">{detail.label}</span> : {detail.value}</li>
                   ))}
                 </ul>
               </div>
               <div className="flex flex-col w-full space-y-4">
+                <h1 className="text-start text-lg lg:text-2xl text-blue-950 lg:font-semibold font-medium tracking-tight">
+                  User Reviews
+                </h1>
                 <Carousel opts={{ dragFree: true }}>
                   <CarouselContent className="w-full flex space-x-4 p-2 justify-start items-center">
                     {[...Array(4)].map((_, index) => (
                       <div
-                        className="flex flex-col h-[30vh] w-[80vw] lg:w-[32vw] rounded-xl bg-white p-6 border-2 space-y-4 border-gray-300 shrink-0"
+                        className="flex flex-col w-[80vw] lg:w-[32vw] h-fit rounded-xl bg-white p-6 border-2 space-y-4 border-gray-300 shrink-0"
                         key={index}
                       >
-                        <div className="w-full h-fit flex justify-start  items-center space-x-4">
+                        <div className="w-full h-fit flex justify-start items-center space-x-4">
                           <Avatar className="h-14 w-14">
                             <AvatarImage src={product.artisan.profileImage} />
                           </Avatar>
@@ -150,7 +253,7 @@ function Page({ params }) {
                             {product.artisan.name}
                           </h2>
                         </div>
-                        <p className="text-xs lg:text-base md:text-sm  h-full w-full text-left text-gray-500">
+                        <p className="text-sm lg:text-base md:text-sm  w-full text-justify text-gray-500">
                           Lorem ipsum dolor sit amet consectetur adipisicing
                           elit. Maxime, et dolores. Praesentium magnam eius
                           assumenda debitis possimus accusantium natus animi
@@ -162,12 +265,12 @@ function Page({ params }) {
                   </CarouselContent>
                 </Carousel>
                 <div className="flex flex-col space-y-4 py-4">
-                  <h3 className="scroll-m-20 text-lg font-bold tracking-tight text-left w-full text-gray-700">
+                  <h3 className="scroll-m-20 text-lg lg:text-2xl text-left lg:font-semibold font-medium tracking-tight w-full text-gray-700">
                     Other Artisans Selling The Same Product
                   </h3>
-                  <div className="flex space-x-2 justify-start items-center w-full">
+                  <div className="flex space-x-6 justify-start items-center w-full">
                     {product.artisan.otherArtisans.map((artisan, index) => (
-                      <Avatar className="lg:h-20 lg:w-20 w-14 h-14" key={index}>
+                      <Avatar className="lg:h-24 lg:w-24 w-14 h-14" key={index}>
                         <AvatarImage className="object-cover" src={artisan} />
                       </Avatar>
                     ))}
@@ -190,7 +293,7 @@ function Page({ params }) {
                   </p>
                   <Link
                     className=" py-2 px-12 bg-blue-950 text-white text-lg font-bold rounded-xl hidden lg:block"
-                    href={`/productArtisan/${product.artisan.name}`}
+                    href={`/artisan/${product.artisan.name}`}
                   >
                     Visit Profile
                   </Link>
@@ -198,7 +301,7 @@ function Page({ params }) {
               </div>
               <Link
                 className=" py-3 bg-blue-950 text-white text-xl font-bold align-middle rounded-2xl lg:hidden"
-                href={`/productArtisan/${product.artisan.name}`}
+                href={`/artisan/${product.artisan.name}`}
               >
                 Visit Profile
               </Link>

@@ -1,64 +1,64 @@
 import React from 'react';
 import Image from 'next/image';
+import ProductCard from '@/components/custom/ProductCard';
 
 const products = [
   {
     id: 1,
-    title: 'Handcrafted Wooden Table',
-    price: '₹500',
-    seller: 'John Doe',
-    image: '/districtArtisanImage1.png', 
+    name: "Wood Craft",
+    location: "Ratnagiri, Maharashtra",
+    price: 200,
+    imageUrl: "/districtArtisanImage1.png",
   },
   {
     id: 2,
-    title: 'Organic Cotton Blanket',
-    price: '₹500',
-    seller: 'Sahil Doe',
-    image: '/districtArtisanImage2.png', 
+    name: "Wood Toy",
+    location: "Pune, Maharashtra",
+    price: 50,
+    imageUrl: "/districtArtisanImage2.png",
   },
   {
     id: 3,
-    title: 'Vintage Ceramic Vase',
-    price: '₹500',
-    seller: 'Mohit Doe',
-    image: '/districtArtisanImage3.png', 
+    name: "Wood Tabla",
+    location: "Shimla, Himachal Pradesh",
+    price: 150,
+    imageUrl: "/districtArtisanImage3.png",
   },
+  {
+    id: 4,
+    name: "Grapes",
+    location: "Nashik, Maharashtra",
+    price: 120,
+    imageUrl: "/districtArtisanImage4.png",
+  },
+  {
+    id: 5,
+    name: "Orange",
+    location: "Nagpur, Maharashtra",
+    price: 80,
+    imageUrl: "/districtArtisanImage1.png",
+  },
+  {
+    id: 6,
+    name: "Pineapple",
+    location: "Goa",
+    price: 60,
+    imageUrl: "/districtArtisanImage2.png",
+  },
+]
   
-  
-];
 
-const ProductCard = ({ image, title, price, seller }) => (
-  <div className="bg-white rounded-lg overflow-hidden border border-gray-200">
-    <div className="relative w-full h-56">
-      <Image
-        src={image}
-        alt={title}
-        layout="fill"
-        objectFit="cover"
-        className="rounded-t-lg"
-      />
-    </div>
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-2">{title}</h2>
-      <p className="text-lg font-semibold mb-2">{price}</p>
-      <p className="text-gray-600">Seller : {seller}</p>
-    </div>
-  </div>
-);
 
 const ProductPage = () => {
   return (
-    <div className="m-3 p-4">
-      <h1 className="text-3xl font-bold mb-6">Explore all Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="px-5 lg:px-10">
+      <h1 className="text-3xl font-bold">Explore all Products</h1>
+      <div className="w-full justify-start space-x-2 flex lg:flex-row items-center flex-col lg:flex-wrap">
         {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            image={product.image}
-            title={product.title}
-            price={product.price}
-            seller={product.seller}
-          />
+          <div className='py-3'>
+
+            <ProductCard key={product.id} product={product}/>
+          </div>
         ))}
       </div>
     </div>
