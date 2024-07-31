@@ -162,14 +162,16 @@ export default function AllDistrictView() {
         <section className="w-full justify-between items-center flex flex-wrap space-y-4 lg:space-x-2 lg:space-y-0 py-4">
           {cardData.map((card) => (
             <Card key={card.id} className="w-full md:w-[49%] md:my-9 bg-gray-100">
-              <Link href={`/districts/${card.title}`}>
+              
                 <CardContent>
                  
                   <ImageCollage individualCardData={card} />
                   
                   <div className="flex flex-col items-start text-left space-y-2 p-3">
                     <CardTitle className="scroll-m-20 text-2xl font-semibold tracking-tight">
+                    <Link href={`/districts/${card.title}`}>
                       {card.title}
+                      </Link>
                     </CardTitle>
                     <CardDescription className="text-justify font-normal text-gray-600">
                       {card.description}
@@ -186,7 +188,7 @@ export default function AllDistrictView() {
                     </Badge>
                   ))}
                 </CardFooter>
-              </Link>
+              
             </Card>
           ))}
         </section>

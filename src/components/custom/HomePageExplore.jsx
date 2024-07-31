@@ -20,7 +20,7 @@ function HomePageExplore({ exploreCategories }) {
   return (
     <>
       <div className="flex justify-between items-center py-1 lg:py-3">
-        <h2 className="text-lg lg:text-3xl text-blue-950 md:font-semibold font-medium tracking-tight">
+        <h2 className="text-lg lg:text-3xl text-blue-950 md:font-semibold font-semibold tracking-tight">
               Explore
             </h2>
             <Link href={"/product/all/"} className="text-sm h-fit text-left md:text-base text-gray-600 cursor-pointer">

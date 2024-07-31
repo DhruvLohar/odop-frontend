@@ -63,7 +63,7 @@ export default function ArtisanProfile({ params }) {
   return (
     <main>
       <center className="w-full h-fit">
-        <section className="w-full h-[25vh] lg:hidden relative">
+        <section className="w-full h-[25vh] lg:h-[40vh] relative">
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-0">
             <Image
               src={description.heroImage}
@@ -72,18 +72,16 @@ export default function ArtisanProfile({ params }) {
             />
           </div>
         </section>
-        <section className="w-full h-fit flex flex-col lg:flex-row items-center justify-center lg:justify-evenly lg:items-start space-y-4 px-5">
-          <Avatar className="h-32 w-32 relative -mt-16 lg:-mt-0 lg:h-60 lg:w-60 ">
-            <AvatarImage src={description.profileImage} />
+        <section className="w-full h-fit relative -mt-16 lg:-mt-20 flex flex-col lg:flex-row items-center justify-center lg:justify-evenly lg:items-start space-y-4 px-5 lg:px-10">
+          <Avatar className="h-32 w-32 lg:h-96 lg:w-96 ">
+            <AvatarImage className="object-cover" src={description.profileImage} />
           </Avatar>
-          <div className="w-full lg:w-2/3 lg:text-left lg:space-y-4 ">
-            <h2 className="text-3xl lg:text-4xl text-gray-700 lg:font-bold font-semibold tracking-tight w-full">
+          <div className="w-full lg:w-2/3 relative lg:-mt-16 lg:text-left lg:space-y-4 ">
+            <h2 className="text-3xl lg:text-6xl text-gray-700 lg:text-white lg:font-bold font-semibold tracking-tight w-full">
               {description.title}
             </h2>
-            <p className="text-sm  lg:text-lg text-justify text-gray-600 w-full">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero et
-              expedita sequi quaerat quis quibusdam saepe ipsam repellat natus
-              velit.
+            <p className="text-xs lg:text-base lg:text-left text-center text-blackgray-600 w-full">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit amet blanditiis numquam, dolorum totam optio neque fugiat sed magni voluptatem ab accusantium inventore cumque? Accusantium, maxime officiis! Ipsa amet ipsam, nesciunt impedit dolores nobis modi, dolor rem quibusdam porro qui ipsum dolorum facere vero maxime?
             </p>
             <div className="w-full  h-full flex justify-center items-start py-4">
               {description.feedBacks.map(({ label, value }, idx, arr) => (
@@ -100,23 +98,25 @@ export default function ArtisanProfile({ params }) {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-        <div className="flex flex-col lg:flex-row w-full space-y-2 lg:space-y-0 lg:space-x-5 px-12 py-5">
-          <Button className=" py-6 bg-blue-950 text-white text-sm lg:text-lg font-semibold align-middle lg:rounded-lg rounded-xl w-full">
-            View Brochure
-          </Button>
-          <Button className=" py-6 bg-blue-950 text-white text-sm lg:text-lg font-semibold align-middle lg:rounded-lg rounded-xl w-full">
-            Contact For WholeSale Purchase
-          </Button>
+          
+        
+            <div className="flex flex-col lg:flex-row w-full space-y-2 lg:space-y-0 lg:space-x-5 py-5">
+              <Button className=" py-6 bg-blue-950 text-white text-sm lg:text-lg font-semibold align-middle lg:rounded-lg rounded-xl w-full">
+                View Brochure
+              </Button>
+              <Button className=" py-6 bg-blue-950 text-white text-sm lg:text-lg font-semibold align-middle lg:rounded-lg rounded-xl w-full">
+                Contact For WholeSale Purchase
+              </Button>
+            </div>
         </div>
-        <section className="w-full flex flex-col p-5">
+        </section>
+        <section className="w-full lg:px-10 lg:py-10 flex flex-col space-y-3 lg:space-y-6 p-5">
           <h2 className="scroll-m-20 text-2xl lg:text-3xl font-semibold tracking-tight text-left w-full">
             Product Gallery
           </h2>
           <ImageCollage individualCardData={description} />
         </section>
-        <section className="flex flex-col w-full p-5 space-y-2">
+        <section className="flex flex-col w-full p-5 md:px-10 space-y-2">
           <h2 className="scroll-m-20 text-2xl lg:text-3xl font-semibold tracking-tight text-left w-full">
             Support The Artisan
           </h2>

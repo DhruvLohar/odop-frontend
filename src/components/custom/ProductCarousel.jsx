@@ -47,7 +47,7 @@ export default function ProductCarousel() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full ${
+            className={`lg:w-3 lg:h-3 w-2 h-2 rounded-full ${
               current === index + 1 ? "bg-blue-900" : "bg-gray-400"
             }`}
           ></button>

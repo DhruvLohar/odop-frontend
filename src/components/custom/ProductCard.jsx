@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function ProductCard({ product }) {
   return (
-    <Card className="w-[46vw] md:w-[23vw] border-none shadow-none flex-shrink-0">
+    <Card className="w-[42vw] md:w-[23vw] mr-3 lg:mr-[6px] border-none shadow-none flex-shrink-0">
       <Link href={`/product/${product.name}`}>
         <CardHeader className="h-[30vh] md:h-[65vh] w-full relative overflow-hidden">
           <Image
