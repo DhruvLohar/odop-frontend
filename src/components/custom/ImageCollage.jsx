@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Carousel, CarouselContent } from "../ui/carousel";
-import Modal from "./Modal"; // Adjust the import path as needed
+import Modal from "./Modal";
 import { usePathname } from "next/navigation";
 
 const ImageCollage = ({ individualCardData }) => {
@@ -39,7 +39,7 @@ const ImageCollage = ({ individualCardData }) => {
             <React.Fragment key={index}>
               {index % 4 === 0 && (
                 <div
-                  className={`h-[25vh] w-[40vw] md:w-[25vw] ${
+                  className={`h-[25vh] w-[40vw] ${
                     pathName === "/districts/all" ||
                     pathName === "/artisan/workshops/all"
                       ? " md:h-[40vh] "
@@ -111,7 +111,7 @@ const ImageCollage = ({ individualCardData }) => {
               )}
               {index % 4 === 3 && (
                 <div
-                  className={`h-[25vh] w-[40vw] md:w-[25vw] ${
+                  className={`h-[25vh] w-[40vw] ${
                     pathName === "/districts/all" ||
                     pathName === "/artisan/workshops/all"
                       ? " md:h-[40vh] "

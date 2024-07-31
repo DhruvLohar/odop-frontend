@@ -164,31 +164,31 @@ export default function AllDistrictView() {
               key={card.id}
               className="w-full md:w-[32%] md:my-4 bg-gray-100"
             >
-              <Link href={`/districts/all/${card.title}`}>
-                <CardContent>
-                  <ImageCollage individualCardData={card} />
+              <CardContent>
+                <ImageCollage individualCardData={card} />
+                <Link href={`/districts/${card.title}`}>
                   <div className="flex flex-col items-start text-left px-3 py-2">
-                    <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight mb-4">
+                    <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight">
                       <p className="scroll-m-20 text-xl font-semibold tracking-tight">
                         {card.title}
                       </p>
                     </CardTitle>
-                    <CardDescription className="text-justify text-sm md:text-xs font-normal text-gray-600 mb-2">
+                    <CardDescription className="text-justify text-sm md:text-xs font-normal text-gray-600">
                       {card.description}
                     </CardDescription>
                   </div>
-                </CardContent>
-                <CardFooter className="px-2 space-x-2">
-                  {card.badges.map((badge, index) => (
-                    <Badge
-                      key={index}
-                      className="px-3 py-2 text-xs bg-gray-300 text-black"
-                    >
-                      {badge}
-                    </Badge>
-                  ))}
-                </CardFooter>
-              </Link>
+                </Link>
+              </CardContent>
+              <CardFooter className="px-2 space-x-2">
+                {card.badges.map((badge, index) => (
+                  <Badge
+                    key={index}
+                    className="px-3 py-2 text-xs bg-gray-300 text-black"
+                  >
+                    {badge}
+                  </Badge>
+                ))}
+              </CardFooter>
             </Card>
           ))}
         </section>
