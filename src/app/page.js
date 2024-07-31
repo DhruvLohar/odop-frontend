@@ -165,7 +165,7 @@ export default function Home() {
           <CarouselPlugin />
         </section>
         <section className="flex flex-col w-full pt-7 md:py-7 px-1 md:px-5 text-left">
-          <h2 className="text-lg md:mb-3 lg:text-3xl text-blue-950 md:font-semibold font-medium tracking-tight">
+          <h2 className="text-lg md:mb-3 lg:text-3xl text-blue-950 md:font-semibold font-semibold tracking-tight">
             Products Nearby
           </h2>
           <Carousel opts={{ dragFree: true }}>

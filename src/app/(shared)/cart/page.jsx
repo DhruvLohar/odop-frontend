@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { IndianRupee } from "lucide-react";
 
 const Page = () => {
     const [cartItems, setCartItems] = useState([
@@ -24,8 +25,8 @@ const Page = () => {
 
     return (
         <>
-            <main className='flex min-h-screen justify-center md:min-w-full md:w-3/5 md:px-4 mt-6 px-5 flex-col md:flex-row mb-14'>
-                <div className='w-full md:w-1/2 md:mt-0 md:mr-5'>
+            <main className='flex min-h-screen md:min-w-full md:w-3/5 md:px-4 px-5 flex-col md:flex-row mb-14'>
+                <div className='w-full top-0 md:w-1/2 md:mt-0 md:mr-5'>
                     <div className='header mb-6 md:mb-10'>
                         <h1 className='mb-2 text-3xl md:text-4xl font-black'>Cart</h1>
                         <p className='text-sm'>Your Cart: Save, Review, and Checkout with Ease!</p>
@@ -42,7 +43,9 @@ const Page = () => {
                                     <div className="flex items-start">
                                     <img src={item.image} alt={item.name} className='h-24 w-24 rounded-xl object-cover' />
                                         <div className="gap-2 ml-8 flex flex-col mr-auto">
-                                            <div className='font-bold text-xl'>₹{item.price}</div>
+                                            <div className='flex items-center font-bold text-xl'>
+                                                <span><IndianRupee size={16} strokeWidth={3} /></span>
+                                                {item.price}</div>
                                             <div className='font-bold text-lg'>{item.name}</div>
                                             <div className='flex items-center justify-between'>
                                                 <h1 className='text-sm'>Seller : {item.seller}</h1>
@@ -51,7 +54,7 @@ const Page = () => {
                                     </div>
 
                                     <div className="px-1 w-full md:w-auto flex flex-row mb-6 md:flex-col justify-between md:mt-0 mt-2 lg:ml-auto">
-                                        <div className="flex justify-center items-center cursor-pointer" onClick={() => handleRemove(item.id)}>
+                                        <div className="flex justify-center font-light items-center cursor-pointer" onClick={() => handleRemove(item.id)}>
                                             Remove
                                         </div>
                                         <div className='flex justify-center items-center '>

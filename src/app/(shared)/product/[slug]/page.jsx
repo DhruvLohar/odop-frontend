@@ -14,7 +14,7 @@ const products = [
   {
     title: "Wood Craft",
     description:
-      "This exquisite wooden sculpture is a testament to fine craftsmanship. Made from premium quality oak wood, it is a perfect addition to any home decor, embodying both elegance and cultural heritage.",
+      "This exquisite wooden sculpture is a testament to fine craftsmanship. Made from premium quality oak wood, it is a perfect addition to any home decor, embodying both elegance and cultural heritage.This exquisite wooden sculpture is a testament to fine craftsmanship. Made from premium quality oak wood, it is a perfect addition to any home decor, embodying both elegance and cultural heritage.",
     details: [
       { label: "Material", value: "Oak Wood" },
       { label: "Dimensions", value: "12 x 8 x 6 inches" },
@@ -173,25 +173,26 @@ function Page({ params }) {
   return (
     <main>
       <center className="h-fit w-full px-5 md:px-10">
-        <section className="flex flex-col lg:flex-row w-full py-5 lg:pb-16 space-y-4 lg:space-x-4  items-start lg:items-center justify-center lg:justify-start">
+        <section className="flex flex-col lg:flex-row w-full lg:pb-16 space-y-4 lg:space-x-4  items-start lg:items-start justify-center lg:justify-start">
           <ProductCarousel />
-          <div className="flex flex-col space-y-4">
-            <span className="hidden lg:flex text-2xl font-bold items-center justify-start w-full">
-              <IndianRupee size={50} strokeWidth={2} />
-              <h2 className="scroll-m-20 text-3xl lg:text-6xl font-semibold lg:font-light tracking-tight text-left w-full">
-                {product.price}
-              </h2>
-              </span>
+          <div className="flex justify-center flex-col space-y-3">
+            <div>
+            <h2 className="scroll-m-20 text-sm lg:text-base font-extralight  lg:font-light text-left w-full">
+              Category : Edibles
+            </h2>
             <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold  lg:font-bold tracking-tight text-left w-full">
               {product.title}
             </h2>
-            <Badge
-              className="px-4 w-fit py-2 bg-gray-300 text-black"
-                    >
-                      Wooden
-                    </Badge>
+            </div>
+            <span className="hidden lg:flex text-2xl font-bold items-center justify-start w-full">
+              <IndianRupee size={30} strokeWidth={3} />
+              <h2 className="scroll-m-20 text-3xl lg:text-3xl font-semibold  lg:font-bold tracking-tight text-left w-full">
+                {product.price}
+              </h2>
+              </span>
+            
             <p className="text-sm lg:text-base text-justify lg:font-m font-light text-gray-600 lg:leading-7">
-              {product.description}
+               {product.description}
             </p>
             
             <div className="w-full hidden lg:flex space-x-2 justify-start items-center">
