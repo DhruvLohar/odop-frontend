@@ -15,13 +15,13 @@ export function CarouselPlugin() {
       onMouseLeave={plugin.current.reset}
       opts={{ align: "center", loop: true }}
     >
-      <CarouselContent className=" px-5 space-x-3">
+      <CarouselContent className="pt-3 px-5 md:px-5 space-x-4 md:space-x-5">
         {Array.from({ length: 5 }).map((_, index) => (
-          <Card className="h-[30vh] md:h-[70vh] w-[75vw] shrink-0 border-none shadow-none relative">
+          <Card className="h-[25vh] md:h-[55vh] w-full shrink-0 border-none shadow-none relative">
             <Image
               src="/homePageImage1.png"
               fill={true}
-              className="object-cover rounded-xl"
+              className="object-cover rounded-lg"
             />
           </Card>
         ))}
