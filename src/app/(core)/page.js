@@ -151,7 +151,7 @@ export default function Home() {
 
   return (
     <main>
-      <center className="w-full h-fit">
+      <center className="w-full h-fit px-5">
         <section className="flex flex-col w-full px-1 lg:px-5 text-left lg:py-4">
           <h2 className="text-lg lg:text-2xl text-blue-950 lg:font-semibold font-medium tracking-tight">
             Good Afternoon, {name}
