@@ -207,7 +207,6 @@ const cardData = [
   },
 ];
 
-
 export default function DistrictView({ params }) {
   const individualCardData = cardData.find(
     (card) => card.title === decodeURIComponent(params.slug)
@@ -215,7 +214,7 @@ export default function DistrictView({ params }) {
 
   return (
     <main>
-      <center className="w-full h-fit lg:px-10 p-5 space-y-2 lg:space-y-4">
+      <center className="w-full h-fit space-y-2 lg:space-y-4">
         <section className="w-full flex flex-col pb-5 space-y-4">
           <h2 className="scroll-m-20 text-center text-3xl lg:text-5xl font-semibold lg:font-extrabold tracking-tight w-full">
             {individualCardData.title}
@@ -234,7 +233,7 @@ export default function DistrictView({ params }) {
               .slice(0, 5)
               .map((artisan, index) => (
                 <Avatar className="h-14 w-14 md:h-24 md:w-24" key={index}>
-                  <AvatarImage className='object-cover' src={artisan} />
+                  <AvatarImage className="object-cover" src={artisan} />
                 </Avatar>
               ))}
           </div>
@@ -246,7 +245,7 @@ export default function DistrictView({ params }) {
           <Carousel opts={{ dragFree: true }}>
             <CarouselContent className="w-full flex space-x-4 p-2">
               {individualCardData.nearbyProducts.map((item) => (
-                <ProductCard product={item}/>
+                <ProductCard product={item} />
               ))}
             </CarouselContent>
           </Carousel>

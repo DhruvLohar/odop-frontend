@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X ,Bell} from "lucide-react";
+import { Menu, X, Bell } from "lucide-react";
 
 const userLinks = [
   { name: "My Profile", url: "/" },
@@ -31,7 +31,9 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`w-full h-full flex justify-between items-center px-5 md:px-10 py-3 sticky top-0 bg-white z-20`}>
+      <div
+        className={`w-full h-full flex justify-between items-center px-3 md:px-10 py-3 sticky top-0 bg-white z-20`}
+      >
         <div className="flex items-center">
           <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
         </div>
@@ -43,9 +45,14 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex items-center">
-          <Link href={"/notification"} className="text-black text-lg"><Bell /></Link>
-          <button onClick={() => setOpen((prev) => !prev)} className="ml-4 md:hidden">
-            {open ? <X color="#000000" /> : <Menu />}
+          <Link href={"/notification"} className="text-black text-lg">
+            <Bell />
+          </Link>
+          <button
+            onClick={() => setOpen((prev) => !prev)}
+            className="ml-4 md:hidden"
+          >
+            {open ? <X color="#000000" /> : <Menu color="#000000" />}
           </button>
         </div>
       </div>
@@ -56,15 +63,14 @@ export default function Navbar() {
       >
         {links.map((link) => (
           <div className="hover:bg-slate-950 rounded-lg w-full p-3 flex justify-start mb-1 ">
-
-          <Link
-            href={link.url}
-            key={link.url}
-            onClick={() => setOpen(false)}
-            className="text-white text-2xl font-bold"
-          >
-            {link.name}
-          </Link>
+            <Link
+              href={link.url}
+              key={link.url}
+              onClick={() => setOpen(false)}
+              className="text-white text-2xl font-bold"
+            >
+              {link.name}
+            </Link>
           </div>
         ))}
       </div>

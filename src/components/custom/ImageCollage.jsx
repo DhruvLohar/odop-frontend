@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Carousel, CarouselContent } from "../ui/carousel";
 import Modal from "./Modal"; // Adjust the import path as needed
+import { usePathname } from "next/navigation";
 
 const ImageCollage = ({ individualCardData }) => {
   const [clickedImg, setClickedImg] = useState(null);
@@ -28,6 +29,8 @@ const ImageCollage = ({ individualCardData }) => {
     setCurrentIndex(newIndex);
   };
 
+  const pathName = usePathname();
+
   return (
     <>
       <Carousel opts={{ dragFree: true }}>
@@ -36,7 +39,12 @@ const ImageCollage = ({ individualCardData }) => {
             <React.Fragment key={index}>
               {index % 4 === 0 && (
                 <div
-                  className="h-[25vh] md:h-[48vh] w-[30vw] relative flex-shrink-0 cursor-pointer"
+                  className={`h-[25vh] w-[40vw] md:w-[25vw] ${
+                    pathName === "/districts/all" ||
+                    pathName === "/artisan/workshops/all"
+                      ? " md:h-[40vh] "
+                      : " md:h-[55vh] "
+                  } relative flex-shrink-0 cursor-pointer`}
                   onClick={() => handleClick(image, index)}
                 >
                   <Image
@@ -48,9 +56,21 @@ const ImageCollage = ({ individualCardData }) => {
                 </div>
               )}
               {index % 4 === 1 && (
-                <div className="flex flex-col h-[24vh] md:h-[47vh] space-y-2">
+                <div
+                  className={`flex flex-col h-[24vh] ${
+                    pathName === "/districts/all" ||
+                    pathName === "/artisan/workshops/all"
+                      ? " md:h-[39vh]"
+                      : "md:h-[54vh]"
+                  } space-y-2`}
+                >
                   <div
-                    className="h-1/2 w-[35vw] relative flex-shrink-0 cursor-pointer"
+                    className={`h-1/2 ${
+                      pathName === "/districts/all" ||
+                      pathName === "/artisan/workshops/all"
+                        ? "w-[40vw] md:w-[25vw]"
+                        : "w-[35vw]"
+                    } relative flex-shrink-0 cursor-pointer`}
                     onClick={() => handleClick(image, index)}
                   >
                     <Image
@@ -61,11 +81,27 @@ const ImageCollage = ({ individualCardData }) => {
                     />
                   </div>
                   <div
-                    className="h-1/2 w-[35vw] relative flex-shrink-0 cursor-pointer"
-                    onClick={() => handleClick(individualCardData.images[(index + 1) % individualCardData.images.length], (index + 1) % individualCardData.images.length)}
+                    className={`h-1/2 ${
+                      pathName === "/districts/all" ||
+                      pathName === "/artisan/workshops/all"
+                        ? "w-[40vw] md:w-[25vw]"
+                        : "w-[35vw]"
+                    } relative flex-shrink-0 cursor-pointer`}
+                    onClick={() =>
+                      handleClick(
+                        individualCardData.images[
+                          (index + 1) % individualCardData.images.length
+                        ],
+                        (index + 1) % individualCardData.images.length
+                      )
+                    }
                   >
                     <Image
-                      src={individualCardData.images[(index + 1) % individualCardData.images.length]}
+                      src={
+                        individualCardData.images[
+                          (index + 1) % individualCardData.images.length
+                        ]
+                      }
                       fill={true}
                       className="object-cover rounded-md"
                       alt={`${individualCardData.title} image ${index + 2}`}
@@ -75,7 +111,12 @@ const ImageCollage = ({ individualCardData }) => {
               )}
               {index % 4 === 3 && (
                 <div
-                  className="h-[25vh] md:h-[48vh] w-[40vw] relative flex-shrink-0 cursor-pointer"
+                  className={`h-[25vh] w-[40vw] md:w-[25vw] ${
+                    pathName === "/districts/all" ||
+                    pathName === "/artisan/workshops/all"
+                      ? " md:h-[40vh] "
+                      : " md:h-[55vh] "
+                  } relative flex-shrink-0 cursor-pointer`}
                   onClick={() => handleClick(image, index)}
                 >
                   <Image
