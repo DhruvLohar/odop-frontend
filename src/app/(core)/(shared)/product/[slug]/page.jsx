@@ -172,7 +172,7 @@ function Page({ params }) {
 
   return (
     <main>
-      <center className="h-fit w-full px-5 md:px-10">
+      <center className="h-fit w-full md:px-10">
         <section className="flex flex-col lg:flex-row w-full lg:pb-16 space-y-4 lg:space-x-4  items-start lg:items-start justify-center lg:justify-start">
           <ProductCarousel />
           <div className="flex justify-center flex-col space-y-3">
@@ -310,7 +310,7 @@ function Page({ params }) {
           )}
         </section>
       </center>
-      <footer className="lg:hidden fixed bottom-0 w-full h-fit flex justify-between items-center bg-blue-950 p-5 text-white rounded-t-3xl">
+      <footer className="lg:hidden fixed bottom-0 w-full h-fit flex justify-between left-0 items-center bg-blue-950 p-5 text-white rounded-t-3xl">
         <span className="flex text-2xl font-bold items-center w-fit">
           <IndianRupee />
           {product.price}
