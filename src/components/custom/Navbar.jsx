@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`w-full h-full flex justify-between items-center px-6 py-3 sticky top-0 bg-white z-20`}>
+      <div className={`w-full h-full flex justify-between items-center px-5 md:px-10 py-3 sticky top-0 bg-white z-20`}>
         <div className="flex items-center">
           <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
         </div>
@@ -50,18 +50,18 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`fixed top-0 py-20 p-3 h-full w-full bg-gray-800 z-10 ${
+        className={`fixed top-0 py-20 p-3 h-full w-full bg-black z-10 ${
           open ? "" : "hidden"
         }`}
       >
         {links.map((link) => (
-          <div className="hover:bg-slate-950 rounded-lg w-full p-3 flex justify-center mb-1 ">
+          <div className="hover:bg-slate-950 rounded-lg w-full p-3 flex justify-start mb-1 ">
 
           <Link
             href={link.url}
             key={link.url}
             onClick={() => setOpen(false)}
-            className="text-white text-xl"
+            className="text-white text-2xl font-bold"
           >
             {link.name}
           </Link>
