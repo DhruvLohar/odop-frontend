@@ -49,124 +49,96 @@ const stateList = [
   { value: "state5", label: "State 5" },
 ];
 
-const cardData = [
+const workshopData = [
   {
-    id: 1,
-    title: "Jammu Kashmir",
-    date: "29th January 2024",
+    title: "Workshop Title 1",
     description:
-      "The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.",
+      "Description for Workshop Title 1. This workshop will focus on various techniques and skills.",
+    address: "1 Workshop Street, City 1",
+    date: "2024-01-01",
+    workshop_level: "Beginner",
+    tags: ["pottery", "beginner", "basics"],
+    organizer: "Craft Guild",
+    price: 100,
+    is_conducted_by_artisan: true,
     images: [
       "/districtArtisanImage1.png",
       "/districtArtisanImage2.png",
       "/districtArtisanImage3.png",
       "/districtArtisanImage4.png",
-      "/districtArtisanImage1.png",
-      "/districtArtisanImage2.png",
-      "/districtArtisanImage3.png",
-      "/districtArtisanImage4.png",
     ],
-    badges: ["Wooden Toy Art", "Craftsmanship"],
   },
   {
-    id: 2,
-    title: "District 2",
-    date: "21st March 2024",
+    title: "Workshop Title 2",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Description for Workshop Title 2. This workshop will focus on various techniques and skills.",
+    address: "2 Workshop Street, City 2",
+    date: "2024-02-02",
+    workshop_level: "Intermediate",
+    tags: ["weaving", "intermediate", "skills"],
+    organizer: "Textile Arts Association",
+    price: 150,
+    is_conducted_by_artisan: true,
     images: [
       "/districtArtisanImage1.png",
       "/districtArtisanImage2.png",
       "/districtArtisanImage3.png",
       "/districtArtisanImage4.png",
     ],
-    badges: ["Pottery", "Handmade"],
   },
   {
-    id: 3,
-    title: "District 3",
-    date: "23rd April 2024",
+    title: "Workshop Title 3",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Description for Workshop Title 3. This workshop will focus on various techniques and skills.",
+    address: "3 Workshop Street, City 3",
+    date: "2024-03-03",
+    workshop_level: "Advanced",
+    tags: ["woodworking", "advanced", "techniques"],
+    organizer: "Woodcraft Society",
+    price: 200,
+    is_conducted_by_artisan: false,
     images: [
       "/districtArtisanImage1.png",
       "/districtArtisanImage2.png",
       "/districtArtisanImage3.png",
       "/districtArtisanImage4.png",
     ],
-    badges: ["Textile", "Weaving"],
   },
   {
-    id: 5,
-    date: "4th June 2024",
-    title: "Jammu Kashmir",
+    title: "Workshop Title 4",
     description:
-      "The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.",
+      "Description for Workshop Title 4. This workshop will focus on various techniques and skills.",
+    address: "4 Workshop Street, City 4",
+    date: "2024-04-04",
+    workshop_level: "Beginner",
+    tags: ["jewelry", "beginner", "design"],
+    organizer: "Gemcraft Association",
+    price: 120,
+    is_conducted_by_artisan: true,
     images: [
       "/districtArtisanImage1.png",
       "/districtArtisanImage2.png",
       "/districtArtisanImage3.png",
       "/districtArtisanImage4.png",
-      "/districtArtisanImage1.png",
-      "/districtArtisanImage2.png",
-      "/districtArtisanImage3.png",
-      "/districtArtisanImage4.png",
     ],
-    badges: ["Wooden Toy Art", "Craftsmanship"],
   },
 ];
 
-export default function AllDistrictView() {
+export default function AllWorkshopView() {
+  const userType = "artisan";
+
+  if (userType !== "artisan") {
+    return <div className="text-black">ARTISAN NAHI HAI TU BSDK</div>;
+  }
+
   return (
     <main>
       <center className="w-full h-fit py-5">
-        <section className="w-full flex justify-between space-x-4 items-center">
-          <div>
-            <DistrictSearch districts={districtsList} />
-          </div>
-
-          <div>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Filter color="#000000" />
-              </SheetTrigger>
-              <SheetContent side="bottom">
-                <SheetHeader>
-                  <SheetTitle>Filters</SheetTitle>
-                  <SheetDescription>Choose Your Preference</SheetDescription>
-                </SheetHeader>
-                <div className="flex flex-col items-start justify-center space-y-6 py-4">
-                  <div className="space-x-4 flex items-center w-full">
-                    <label htmlFor="name">State</label>
-                    <FilterSelect
-                      placeholder="Select a State"
-                      label="State"
-                      options={stateList}
-                    />
-                  </div>
-                  <div className="space-x-2 flex items-center justify-center w-full">
-                    <label htmlFor="username">City</label>
-                    <FilterSelect
-                      placeholder="Select a City"
-                      label="City"
-                      options={cityList}
-                    />
-                  </div>
-                </div>
-                <SheetFooter>
-                  <SheetClose asChild>
-                    <Button type="submit">Save changes</Button>
-                  </SheetClose>
-                </SheetFooter>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </section>
         <section className="w-full justify-between items-center flex flex-wrap space-y-2 lg:space-y-0 py-2">
-          {cardData.map((card) => (
+          {workshopData.map((card) => (
             <Card
               key={card.id}
-              className="w-full md:w-[32%] md:my-4 bg-gray-100"
+              className="w-full md:w-[32%] md:my-5 bg-gray-100"
             >
               <CardContent>
                 <ImageCollage individualCardData={card} />
@@ -187,7 +159,7 @@ export default function AllDistrictView() {
                 </Link>
               </CardContent>
               <CardFooter className="px-2 space-x-2">
-                {card.badges.map((badge, index) => (
+                {card.tags.map((badge, index) => (
                   <Badge
                     key={index}
                     className="px-3 py-2 text-xs bg-gray-300 text-black"

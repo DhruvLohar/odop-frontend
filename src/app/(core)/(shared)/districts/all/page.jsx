@@ -169,11 +169,11 @@ export default function AllDistrictView() {
                 <Link href={`/districts/${card.title}`}>
                   <div className="flex flex-col items-start text-left px-3 py-2">
                     <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight">
-                      <p className="scroll-m-20 text-xl font-semibold tracking-tight">
+                      <p className="scroll-m-20 text-xl font-semibold tracking-tight mb-4">
                         {card.title}
                       </p>
                     </CardTitle>
-                    <CardDescription className="text-justify text-sm md:text-xs font-normal text-gray-600">
+                    <CardDescription className="text-justify text-sm md:text-xs font-normal text-gray-600 mb-2">
                       {card.description}
                     </CardDescription>
                   </div>

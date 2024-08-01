@@ -214,7 +214,7 @@ export default function DistrictView({ params }) {
 
   return (
     <main>
-      <center className="w-full h-fit space-y-2 lg:space-y-4">
+      <center className="w-full h-fit space-y-2 lg:space-y-4 text-gray-900">
         <section className="w-full flex flex-col pb-5 space-y-4">
           <h2 className="scroll-m-20 text-center text-3xl lg:text-5xl font-semibold lg:font-extrabold tracking-tight w-full">
             {individualCardData.title}
