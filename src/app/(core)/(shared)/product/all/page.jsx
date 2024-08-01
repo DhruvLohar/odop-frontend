@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import ProductCard from '@/components/custom/ProductCard';
+import React from "react";
+import Image from "next/image";
+import ProductCard from "@/components/custom/ProductCard";
 
 const products = [
   {
@@ -45,23 +45,21 @@ const products = [
     price: 60,
     imageUrl: "/districtArtisanImage2.png",
   },
-]
-  
-
+];
 
 const ProductPage = () => {
   return (
-    <div className="px-5 lg:px-10">
+    <div>
       <h1 className="text-3xl font-bold">Explore all Products</h1>
       <div className="w-full justify-start flex lg:flex-row items-center flex-wrap">
         {products.map((product) => (
-          <div className='py-3'>
-            <ProductCard key={product.id} product={product}/>
+          <div className="py-3">
+            <ProductCard key={product.id} product={product} />
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default ProductPage;
