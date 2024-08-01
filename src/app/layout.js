@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/context/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import Footer1 from "@/components/custom/Footer";
 
 const poppins = Poppins({
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
         >
           {/* <Navbar /> */}
           {children}
-
+          <Footer1 />
           <Toaster />
         </ThemeProvider>
       </body>

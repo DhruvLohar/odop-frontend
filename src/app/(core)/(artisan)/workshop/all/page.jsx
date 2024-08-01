@@ -135,7 +135,7 @@ export default function AllWorkshopView() {
 
   const Component = ({ card }) => {
     return (
-      <Card className="w-[31%] max-w-lg overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl content-start my-8">
+      <Card className="w-full lg:w-[31%] max-w-lg overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl content-start my-8">
         <ImageCollage individualCardData={card} />
         <div className="p-4">
           <div className="mb-4 flex items-center gap-2">
@@ -179,7 +179,7 @@ export default function AllWorkshopView() {
             </p>
           </div>
         </div>
-        <section className="w-full justify-between items-center flex flex-wrap space-y-2 lg:space-y-0 py-2">
+        <section className="w-full justify-between items-center flex flex-col lg:flex-row lg:flex-wrap space-y-2 lg:space-y-0 py-2">
           {workshopData.map((card) => (
             <Component card={card} />
           ))}
