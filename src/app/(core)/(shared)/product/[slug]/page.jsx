@@ -8,7 +8,6 @@ import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
-
 // Dummy data
 const products = [
   {
@@ -151,8 +150,6 @@ const products = [
   },
 ];
 
-
-
 const filterArray = ["Product Details", "About Artisan"];
 
 function Page({ params }) {
@@ -165,6 +162,7 @@ function Page({ params }) {
   };
 
   const product = products.find((product) => product.title === title);
+  console.log(product);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -172,29 +170,29 @@ function Page({ params }) {
 
   return (
     <main>
-      <center className="h-fit w-full md:px-10">
+      <center className="h-fit w-full text-gray-900">
         <section className="flex flex-col lg:flex-row w-full lg:pb-16 space-y-4 lg:space-x-4  items-start lg:items-start justify-center lg:justify-start">
           <ProductCarousel />
           <div className="flex justify-center flex-col space-y-3">
             <div>
-            <h2 className="scroll-m-20 text-sm lg:text-base font-extralight  lg:font-light text-left w-full">
-              Category : Edibles
-            </h2>
-            <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold  lg:font-bold tracking-tight text-left w-full">
-              {product.title}
-            </h2>
+              <h2 className="scroll-m-20 text-sm lg:text-base font-extralight  lg:font-light text-left w-full">
+                Category : Edibles
+              </h2>
+              <h2 className="scroll-m-20 text-3xl lg:text-4xl font-semibold  lg:font-bold tracking-tight text-left w-full ">
+                {product.title}
+              </h2>
             </div>
             <span className="hidden lg:flex text-2xl font-bold items-center justify-start w-full">
               <IndianRupee size={30} strokeWidth={3} />
               <h2 className="scroll-m-20 text-3xl lg:text-3xl font-semibold  lg:font-bold tracking-tight text-left w-full">
                 {product.price}
               </h2>
-              </span>
-            
+            </span>
+
             <p className="text-sm lg:text-base text-justify lg:font-m font-light text-gray-600 lg:leading-7">
-               {product.description}
+              {product.description}
             </p>
-            
+
             <div className="w-full hidden lg:flex space-x-2 justify-start items-center">
               <Button className="px-14 ">Buy Now</Button>
               <Button className="px-14 bg-white  hover:bg-gray-100 border-blue-950 border-2 text-blue-950">
@@ -204,9 +202,7 @@ function Page({ params }) {
           </div>
         </section>
         <section className="flex flex-col w-full">
-          <div
-            className="relative w-full flex justify-start items-center space-x-5 py-4"
-          >
+          <div className="relative w-full flex justify-start items-center space-x-5 py-4">
             {filterArray.map((filter, index) => (
               <div key={index}>
                 <button
@@ -231,7 +227,10 @@ function Page({ params }) {
                 <p className="font-base text-justify">{product.description}</p>
                 <ul className="list-disc pl-5">
                   {product.details.map((detail, index) => (
-                    <li key={index}><span className="font-bold">{detail.label}</span> : {detail.value}</li>
+                    <li key={index}>
+                      <span className="font-bold">{detail.label}</span> :{" "}
+                      {detail.value}
+                    </li>
                   ))}
                 </ul>
               </div>

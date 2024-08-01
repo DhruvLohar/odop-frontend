@@ -3,13 +3,12 @@ import { ThemeProvider } from "@/context/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import Navbar from "@/components/custom/Navbar";
 
 const poppins = Poppins({
-  weight: ['200', '300', '400', '500', '600', '700'],
-  style: ['normal'],
-  subsets: ['latin'],
-  display: 'swap'
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {

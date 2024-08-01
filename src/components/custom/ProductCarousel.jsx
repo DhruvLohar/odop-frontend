@@ -42,13 +42,13 @@ export default function ProductCarousel() {
           </Card>
         ))}
       </CarouselContent>
-      <div className="flex w-full space-x-3 justify-center py-2">
+      <div className="flex w-full space-x-3 justify-center items-center py-2">
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`lg:w-3 lg:h-3 w-2 h-2 rounded-full ${
-              current === index + 1 ? "bg-blue-900" : "bg-gray-400"
+            className={`w-2 h-2 rounded-full ${
+              current === index + 1 ? "bg-blue-900 h-4" : "bg-slate-300"
             }`}
           ></button>
         ))}

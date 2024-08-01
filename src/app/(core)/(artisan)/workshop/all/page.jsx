@@ -142,7 +142,7 @@ export default function AllWorkshopView() {
             >
               <CardContent>
                 <ImageCollage individualCardData={card} />
-                <Link href={`${card.title}`}>
+                <Link href={`/workshop/${card.title}`}>
                   <div className="flex flex-col items-start text-left px-3 py-2">
                     <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight w-full flex justify-between items-center mb-4">
                       <p className="scroll-m-20 text-xl font-semibold tracking-tight">

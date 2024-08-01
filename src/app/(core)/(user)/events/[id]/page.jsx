@@ -2,14 +2,14 @@ import ImageCollage from "@/components/custom/ImageCollage";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 
-const jobPortalData = [
+const eventData = [
   {
-    title: "Workshop Title 1",
+    title: "Event Title 1",
     description:
-      "Description for Workshop Title 1. This workshop will focus on various techniques and skills.",
-    address: "1 Workshop Street, City 1",
+      "Description for Event Title 1. This event will focus on various techniques and skills.",
+    address: "1 Event Street, City 1",
     date: "2024-01-01",
-    workshop_level: "Beginner",
+    event_level: "Beginner",
     tags: ["pottery", "beginner", "basics"],
     organizer: "Craft Guild",
     price: 100,
@@ -22,12 +22,12 @@ const jobPortalData = [
     ],
   },
   {
-    title: "Workshop Title 2",
+    title: "Event Title 2",
     description:
-      "Description for Workshop Title 2. This workshop will focus on various techniques and skills.",
-    address: "2 Workshop Street, City 2",
+      "Description for Event Title 2. This event will focus on various techniques and skills.",
+    address: "2 Event Street, City 2",
     date: "2024-02-02",
-    workshop_level: "Intermediate",
+    event_level: "Intermediate",
     tags: ["weaving", "intermediate", "skills"],
     organizer: "Textile Arts Association",
     price: 150,
@@ -40,12 +40,12 @@ const jobPortalData = [
     ],
   },
   {
-    title: "Workshop Title 3",
+    title: "Event Title 3",
     description:
-      "Description for Workshop Title 3. This workshop will focus on various techniques and skills.",
-    address: "3 Workshop Street, City 3",
+      "Description for Event Title 3. This event will focus on various techniques and skills.",
+    address: "3 Event Street, City 3",
     date: "2024-03-03",
-    workshop_level: "Advanced",
+    event_level: "Advanced",
     tags: ["woodworking", "advanced", "techniques"],
     organizer: "Woodcraft Society",
     price: 200,
@@ -58,12 +58,12 @@ const jobPortalData = [
     ],
   },
   {
-    title: "Workshop Title 4",
+    title: "Event Title 4",
     description:
-      "Description for Workshop Title 4. This workshop will focus on various techniques and skills.",
-    address: "4 Workshop Street, City 4",
+      "Description for Event Title 4. This event will focus on various techniques and skills.",
+    address: "4 Event Street, City 4",
     date: "2024-04-04",
-    workshop_level: "Beginner",
+    event_level: "Beginner",
     tags: ["jewelry", "beginner", "design"],
     organizer: "Gemcraft Association",
     price: 120,
@@ -77,14 +77,14 @@ const jobPortalData = [
   },
 ];
 
-export default function JobPortalView({ params }) {
+export default function WorkShopView({ params }) {
   const userType = "artisan";
 
   if (userType !== "artisan") {
     return <div className="text-black">ARTISAN NAHI HAI TU BSDK</div>;
   }
 
-  const individualCardData = jobPortalData.find(
+  const individualCardData = eventData.find(
     (card) => card.title === decodeURIComponent(params.id)
   );
 

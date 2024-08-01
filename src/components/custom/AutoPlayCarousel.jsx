@@ -6,7 +6,9 @@ import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Image from "next/image";
 
 export function CarouselPlugin() {
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const plugin = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
 
   return (
     <Carousel
