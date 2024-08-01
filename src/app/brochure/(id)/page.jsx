@@ -1,43 +1,42 @@
 import React from "react";
 
 const brochureData = {
-  logo: "/img/ODOP1.png",
-  title: "ONE DISTRICT ONE PRODUCT",
-  introduction: {
-    text: "Lorem ipsum dolor sit amet consectetur. Non risus sed morbi facilisis sagittis eget id. Risus mi urna elementum tristique maecenas aliquam nulla. Aliquam morbi vulputate integer interdum ut in quis. Consectetur aliquam quisque leo cras elementum vestibulum tristique tincidunt. Faucibus proin fermentum odio libero. Sit sapien nascetur egestas quis consectetur ut. Sit enim aenean diam enim donec fermentum. At auctor urna vitae adipiscing. Aliquet feugiat augue nibh nec lorem amet. Tellus tellus urna tempor mauris nibh ornare quam suspendisse. Ut nullam diam eget massa nulla risus.",
-    image: "/img/ODOP2.png",
-  },
-  storeInfo: {
-    phone: "9898989898",
-    address: "12, Near this near that, Bihar - 400000",
-    storefront: "/img/Rectangle3.png",
-    map: "/img/Rectangle2.png",
-  },
-  productCategories: [
-    {
-      name: "Belts",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Non risus sed morbi facilisis sagittis eget id. Risus mi urna elementum tristique maecenas aliquam nulla. Aliquam morbi vulputate integer interdum ut in quis. Consectetur aliquam quisque leo cras elementum vestibulum tristique tincidunt. Faucibus",
-      image: "/img/Rectangle4.png",
+    logo: "/img/ODOP1.png",
+    title: "ONE DISTRICT ONE PRODUCT",
+    introduction: {
+      text: "The One District One Product (ODOP) initiative is a pioneering scheme aimed at promoting the indigenous crafts and products unique to each district across India. Our mission is to highlight and elevate the craftsmanship of local artisans, ensuring their products reach a wider market. This initiative not only aims to preserve traditional arts but also to provide a sustainable livelihood for artisans, enhancing their socio-economic status. Join us in celebrating the rich heritage and diversity of our nation's craftsmanship.",
+      image: "/img/ODOP2.png",
     },
-    {
-      name: "Watch Belts",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Non risus sed morbi facilisis sagittis eget id. Risus mi urna elementum tristique maecenas aliquam nulla. Aliquam morbi vulputate integer interdum ut in quis. Consectetur aliquam quisque leo cras elementum vestibulum tristique tincidunt. Faucibus",
-      image: "/img/Rectangle5.png",
+    storeInfo: {
+      phone: "9898989898",
+      address: "12, Near this near that, Bihar - 400000",
+      storefront: "/img/Rectangle3.png",
+      map: "/img/Rectangle2.png",
     },
-  ],
-  carousel: {
-    img1: "/img/Rectangle10.png",
-    img2: "/img/Rectangle11.png",
-    img3: "/img/Rectangle11.png",
-    img4: "/img/Rectangle10.png",
-  },
-  materialsAndCraftsmen: {
-    text: "Lorem ipsum dolor sit amet consectetur. Non risus sed morbi facilisis sagittis eget id. Risusssss mi urna elementum tristique maecenas aliquam nulla. Aliquam morbi vulputate integer interdsssum ut in quis. Consectetur aliquam quisque leo cras elementum vestibulum tristique tincidunt. Faucibus proin sssa mentum odio libero. Sit sapien nascetur egestas quis consectetur ut. Sit enim aenean diam enim donec fermentum. At auctor urna vitae adipiscing. Aliquet feugiat augue nibh nec lorem amet. Tellus",
-    image: "/img/Rectangle9.png",
-  },
-};
+    productCategories: [
+      {
+        name: "Belts",
+        description: "Our belts are a testament to the fine craftsmanship passed down through generations. Made from high-quality leather and adorned with intricate designs, each belt is a unique piece of art. Our artisans take great pride in their work, ensuring that every belt is not only stylish but also durable. These belts are perfect for adding a touch of elegance to any outfit, whether formal or casual.",
+        image: "/img/Rectangle4.png",
+      },
+      {
+        name: "Watch Belts",
+        description: "Our watch belts are designed to complement your timepieces perfectly. Crafted from premium materials, these watch belts are both functional and fashionable. With a variety of styles and finishes, they cater to different tastes and preferences. Each watch belt is meticulously crafted to ensure a comfortable fit and a sophisticated look, making them an essential accessory for any watch enthusiast.",
+        image: "/img/Rectangle5.png",
+      },
+    ],
+    carousel: {
+      img1: "/img/Rectangle10.png",
+      img2: "/img/Rectangle11.png",
+      img3: "/img/Rectangle11.png",
+      img4: "/img/Rectangle10.png",
+    },
+    materialsAndCraftsmen: {
+      text: "Our products are crafted using the finest materials, sourced locally to support our community and ensure the highest quality. The artisans we work with are masters of their trade, bringing years of experience and passion to their work. Each item is made with meticulous attention to detail, blending traditional techniques with modern designs. Our commitment to excellence ensures that every product is not only beautiful but also built to last, reflecting the rich cultural heritage of our artisans.",
+      image: "/img/Rectangle9.png",
+    },
+  };
+  
 
 const ODOPBrochure = () => {
   return (
@@ -145,7 +144,7 @@ const ODOPBrochure = () => {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="object-cover rounded-lg "
+                      className="object-cover  rounded-lg "
                     />
                   </div>
                 </>
@@ -189,11 +188,11 @@ const ODOPBrochure = () => {
           Materials and Craftsmen
         </h2>
         <div className="flex flex-col  gap-4">
-          <div className="w-full h-40">
+          <div className="w-full">
             <img
               src={brochureData.materialsAndCraftsmen.image}
               alt="Craftsman"
-              className="object-contain w-full"
+              className="object-cover w-full h-full"
             />
           </div>
           <p className="w-full text-black text-base md:text-xl">
