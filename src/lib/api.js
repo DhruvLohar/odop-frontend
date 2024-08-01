@@ -3,7 +3,8 @@
 import axios from "axios";
 import { cookies } from "next/headers";
 
-axios.defaults.baseURL = "https://odop.insighttellers.com/"
+// axios.defaults.baseURL = "https://odop.insighttellers.com/"
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL
 
 axios.defaults.headers.common["Content-Type"] = 'application/json'
 
