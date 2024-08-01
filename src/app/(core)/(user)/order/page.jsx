@@ -7,52 +7,10 @@ export default function Component() {
     <div className="grid grid-cols-2 gap-6 w-full mx-auto p-4 sm:p-6">
       <div className="col-span-2 sm:col-span-1">
         <h2 className="text-black text-2xl font-semibold mb-4">My orders</h2>
-        <Card className="h-full w-full p-6 border-2 border-gray-100">
-          <CardContent className="grid grid-cols-[1fr_auto] gap-4 items-center">
-            <div className="grid gap-2">
-              <div className="flex items-center gap-3">
-               
-                <div className="grid gap-1">
-                  <div className="font-semibold">Acme Inc.</div>
-                  <div className="text-sm text-muted-foreground">Placed on May 15, 2024</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <PackageIcon className="w-4 h-4" />
-                <span>Order #OE31b70H</span>
-              </div>
-            </div>
-            <Link href={"/ordertracking"}>
-              <Button variant="outline" size="sm" className="whitespace-nowrap">
-                View Order
-              </Button>
-              </Link>
-          </CardContent>
-        </Card>
+        
       </div>
       <div className="col-span-2 sm:col-span-1">
-        <Card className="h-full p-6 border-2 border-gray-100">
-          <CardContent className="grid grid-cols-[1fr_auto] gap-4 items-center">
-            <div className="grid gap-2">
-              <div className="flex items-center gap-3">
-                
-                <div className="grid gap-1">
-                  <div className="font-semibold">Acme Inc.</div>
-                  <div className="text-sm text-muted-foreground">Placed on April 22, 2024</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <PackageIcon className="w-4 h-4" />
-                <span>Order #OE31b70G</span>
-              </div>
-            </div>
-            <Link href={"/ordertracking"}>
-              <Button variant="outline" size="sm" className="whitespace-nowrap">
-                View Order
-              </Button>
-              </Link>
-          </CardContent>
-        </Card>
+        
       </div>
       <div className="col-span-2 sm:col-span-1">
         <Card className="h-full p-6 border-2 border-gray-100">
@@ -61,7 +19,7 @@ export default function Component() {
               <div className="flex items-center gap-3">
           
                 <div className="grid gap-1">
-                  <div className="font-semibold">Acme Inc.</div>
+                  <div className="font-semibold">Wood Craft, Wood Toy</div>
                   <div className="text-sm text-muted-foreground">Placed on March 10, 2024</div>
                 </div>
               </div>
@@ -79,28 +37,7 @@ export default function Component() {
         </Card>
       </div>
       <div className="col-span-2 sm:col-span-1">
-        <Card className="h-full p-6 border-2 border-gray-100">
-          <CardContent className="grid grid-cols-[1fr_auto] gap-4 items-center">
-            <div className="grid gap-2">
-              <div className="flex items-center gap-3">
-                
-                <div className="grid gap-1">
-                  <div className="font-semibold">Acme Inc.</div>
-                  <div className="text-sm text-muted-foreground">Placed on February 28, 2024</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <PackageIcon className="w-4 h-4" />
-                <span>Order #OE31b70E</span>
-              </div>
-            </div>
-            <Link href={"/ordertracking"}>
-              <Button variant="outline" size="sm" className="whitespace-nowrap">
-                View Order
-              </Button>
-              </Link>
-          </CardContent>
-        </Card>
+        
       </div>
     </div>
   )

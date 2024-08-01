@@ -4,6 +4,14 @@ import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import HomePageExplore from "@/components/custom/HomePageExplore";
 import ProductCard from "@/components/custom/ProductCard";
 
+
+const imageSources = [
+  "/homePageImage1.png",
+  "/homePageImage2.png",
+  "/homePageImage3.png",
+  "/homePageImage4.png",
+  "/homePageImage5.png",
+];
 // Dummy user data
 const userData = {
   name: "John Doe",
@@ -13,14 +21,14 @@ const userData = {
       id: 1,
       name: "Wood Craft",
       location: "Ratnagiri, Maharashtra",
-      price: 200,
+      price: 1200,
       imageUrl: "/districtArtisanImage1.png",
     },
     {
       id: 2,
       name: "Wood Toy",
       location: "Pune, Maharashtra",
-      price: 50,
+      price: 300,
       imageUrl: "/districtArtisanImage2.png",
     },
     {

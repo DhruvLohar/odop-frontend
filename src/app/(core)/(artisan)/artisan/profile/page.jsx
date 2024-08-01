@@ -103,7 +103,10 @@ export default function ArtisanProfile() {
                 </h1>
 
                 <div className="lg:ml-auto flex flex-row items-center justify-center space-x-4 ml-6">
-                  <Button>View Brochure</Button>
+                  <Link href={"/brochure"}>
+                    <Button>View Brochure</Button>
+                  </Link>
+                  
                   <ContactArtisanModal />
                   <ProfileMenu />
                 </div>

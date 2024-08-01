@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Dialog,DialogClose ,DialogTrigger, DialogContent } from '@/components/ui/dialog';
 import Link from 'next/link';
+import { IndianRupee } from 'lucide-react';
 
 export default function Component() {
   const [formData, setFormData] = useState({
@@ -145,15 +146,15 @@ export default function Component() {
           <CardContent className="grid gap-4">
             <div className="flex items-center justify-between">
               <span>Subtotal</span>
-              <span>$99.99</span>
+              <span className='flex justify-center items-center'><IndianRupee size={16} strokeWidth={2} />1500</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Shipping</span>
-              <span>$4.99</span>
+              <span className='flex justify-center items-center'><IndianRupee size={16} strokeWidth={2} />0</span>
             </div>
             <div className="flex items-center justify-between font-medium">
               <span>Total</span>
-              <span>$104.98</span>
+              <span className='flex justify-center items-center'><IndianRupee size={16} strokeWidth={2} />1500</span>
             </div>
           </CardContent>
         </Card>
@@ -172,14 +173,14 @@ export default function Component() {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell>Cozy Blanket</TableCell>
+                  <TableCell>Wood Craft</TableCell>
                   <TableCell>1</TableCell>
-                  <TableCell>$49.99</TableCell>
+                  <TableCell>₹1200</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Autumn Mug</TableCell>
+                  <TableCell>Wood Toy</TableCell>
                   <TableCell>2</TableCell>
-                  <TableCell>$24.99</TableCell>
+                  <TableCell>₹300</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
