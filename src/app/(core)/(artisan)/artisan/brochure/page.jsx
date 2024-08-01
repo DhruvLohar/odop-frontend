@@ -43,18 +43,15 @@ const ODOPBrochure = () => {
   return (
     <div className="w-full h-full font-sans overflow-auto">
       <div className="w-full bg-white p-4 md:p-8 overflow-hidden">
-       
         <div className="flex w-full justify-center mb-4  pb-2">
           <img
             src={brochureData.logo}
             alt="ODOP Logo"
             className="h-8 md:h-20"
           />
-          
         </div>
         <div className="h-[1px] w-full bg-black"></div>
 
-      
         <div className="text-start">
           <h2 className="text-3xl md:text-5xl  font-bold text-[#0a2c5c] mt-2">
             Introduction
@@ -76,7 +73,6 @@ const ODOPBrochure = () => {
           </div>
         </div>
 
-       
         <div className="flex  gap-4 mb-4 ">
           <div className="relative h-[45vh] md:h-[60vh] w-1/2 aspect-w-1 aspect-h-1">
             <img
@@ -106,7 +102,7 @@ const ODOPBrochure = () => {
         </div>
 
         <div className="h-[1px] w-full my-10 bg-black"></div>
-      
+
         <h2 className="text-3xl md:text-5xl font-bold text-[#0a2c5c] mb-8 mt-3 text-center">
           Product Categories
         </h2>
@@ -154,8 +150,6 @@ const ODOPBrochure = () => {
           ))}
         </div>
 
- 
-
         <div className="relative grid grid-cols-2 ">
           <div className="absolute text-black inset-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-white rounded-full h-24 w-24 p-2">
             pure Khadi
@@ -184,7 +178,6 @@ const ODOPBrochure = () => {
         </div>
         <div className="h-[1px] w-full bg-black my-10 mt-5"></div>
 
-        
         <h2 className="text-3xl md:text-5xl text-center font-bold text-[#0a2c5c] mb-4 mt-4">
           Materials and Craftsmen
         </h2>

@@ -3,7 +3,7 @@
  * @see https://v0.dev/t/CV2lz46jTNy
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function Component() {
   return (
@@ -11,7 +11,6 @@ export default function Component() {
       <div className="bg-background px-6 py-8 shadow-sm">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-medium text-black">Notifications</h2>
-          
         </div>
       </div>
       <div className="space-y-6 p-6">
@@ -24,7 +23,9 @@ export default function Component() {
               <h3 className="text-lg text-black font-medium">New message</h3>
               <p className="text-sm text-muted-foreground">2 hours ago</p>
             </div>
-            <p className="text-base text-muted-foreground">You have a new message from Jane Doe.</p>
+            <p className="text-base text-muted-foreground">
+              You have a new message from Jane Doe.
+            </p>
           </div>
         </div>
         <div className="flex items-start gap-6">
@@ -36,7 +37,9 @@ export default function Component() {
               <h3 className="text-lg text-black font-medium">Upcoming event</h3>
               <p className="text-sm text-muted-foreground">1 day ago</p>
             </div>
-            <p className="text-base text-muted-foreground">Your event "Team Offsite" is coming up tomorrow.</p>
+            <p className="text-base text-muted-foreground">
+              Your event &quot;Team Offsite&quot; is coming up tomorrow
+            </p>
           </div>
         </div>
         <div className="flex items-start gap-6">
@@ -45,10 +48,14 @@ export default function Component() {
           </div>
           <div className="flex-1">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg text-black font-medium">Payment received</h3>
+              <h3 className="text-lg text-black font-medium">
+                Payment received
+              </h3>
               <p className="text-sm text-muted-foreground">3 days ago</p>
             </div>
-            <p className="text-base text-muted-foreground">Your payment of $50 has been received.</p>
+            <p className="text-base text-muted-foreground">
+              Your payment of $50 has been received.
+            </p>
           </div>
         </div>
         <div className="flex items-start gap-6">
@@ -60,12 +67,14 @@ export default function Component() {
               <h3 className="text-lg text-black font-medium">New review</h3>
               <p className="text-sm text-muted-foreground">1 week ago</p>
             </div>
-            <p className="text-base text-muted-foreground">You received a 5-star review from a customer.</p>
+            <p className="text-base text-muted-foreground">
+              You received a 5-star review from a customer.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function BellIcon(props) {
@@ -85,9 +94,8 @@ function BellIcon(props) {
       <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
       <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
     </svg>
-  )
+  );
 }
-
 
 function CalendarIcon(props) {
   return (
@@ -108,9 +116,8 @@ function CalendarIcon(props) {
       <rect width="18" height="18" x="3" y="4" rx="2" />
       <path d="M3 10h18" />
     </svg>
-  )
+  );
 }
-
 
 function StarIcon(props) {
   return (
@@ -128,9 +135,8 @@ function StarIcon(props) {
     >
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
-  )
+  );
 }
-
 
 function WalletIcon(props) {
   return (
@@ -149,9 +155,8 @@ function WalletIcon(props) {
       <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
       <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
     </svg>
-  )
+  );
 }
-
 
 function XIcon(props) {
   return (
@@ -170,5 +175,5 @@ function XIcon(props) {
       <path d="M18 6 6 18" />
       <path d="m6 6 12 12" />
     </svg>
-  )
+  );
 }

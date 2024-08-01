@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -24,9 +24,12 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 import { Switch } from "@/components/ui/switch";
-import { ProductCategories, ProductRawMaterials } from "@/lib/constants/productCategories";
+import {
+  ProductCategories,
+  ProductRawMaterials,
+} from "@/lib/constants/productCategories";
 import { Textarea } from "@/components/ui/textarea";
 
 const dimensionsSchema = z.object({
@@ -37,14 +40,14 @@ const dimensionsSchema = z.object({
 });
 
 const formSchema = z.object({
-  "title": z.string().min(1).max(255),
-  "description": z.string().min(1).max(9999),
-  "back_story": z.string().min(1).optional(),
-  "price": z.coerce.number().gte(1),
-  "is_customizable": z.boolean(),
-  "category": z.string(),
-  "raw_material": z.string()
-})
+  title: z.string().min(1).max(255),
+  description: z.string().min(1).max(9999),
+  back_story: z.string().min(1).optional(),
+  price: z.coerce.number().gte(1),
+  is_customizable: z.boolean(),
+  category: z.string(),
+  raw_material: z.string(),
+});
 
 export default function ListProduct() {
   const form = useForm({
@@ -56,25 +59,33 @@ export default function ListProduct() {
       price: 0,
       category: "food",
     },
-  })
+  });
 
   const formOptions = useMemo(() => {
-    return ProductRawMaterials[form.getValues().category]
+    return ProductRawMaterials[form.getValues().category];
   }, [form.getValues().category]);
 
   function onSubmit(values) {
-    console.log(values)
+    console.log(values);
   }
 
   return (
     <div className="min-h-screen flex items-start justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl w-full">
-        <h1 className="text-center text-3xl font-extrabold text-gray-900 mb-2">List a New Product</h1>
-        <p className='text-center text-slate-400 mb-6'>Fill the form below in order to list your product on the Global Marketplace</p>
+        <h1 className="text-center text-3xl font-extrabold text-gray-900 mb-2">
+          List a New Product
+        </h1>
+        <p className="text-center text-slate-400 mb-6">
+          Fill the form below in order to list your product on the Global
+          Marketplace
+        </p>
 
         <Form {...form}>
-          <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-
+          <form
+            noValidate
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8"
+          >
             <FormField
               control={form.control}
               name="title"
@@ -96,7 +107,10 @@ export default function ListProduct() {
                 <FormItem>
                   <FormLabel>Product Description</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Describe your product ..." {...field} />
+                    <Textarea
+                      placeholder="Describe your product ..."
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -113,7 +127,8 @@ export default function ListProduct() {
                     <Textarea placeholder="Backstory" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Any specific back story related to this product, which you would like everyone to know about!
+                    Any specific back story related to this product, which you
+                    would like everyone to know about!
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -140,9 +155,12 @@ export default function ListProduct() {
               render={({ field }) => (
                 <FormItem className="flex flex-row items-center justify-between rounded-lg">
                   <div className="space-y-0.5">
-                    <FormLabel className="text-base">Is Customizable?</FormLabel>
+                    <FormLabel className="text-base">
+                      Is Customizable?
+                    </FormLabel>
                     <FormDescription className="text-xs">
-                      Whether the user can know or add any custom build note for this product.
+                      Whether the user can know or add any custom build note for
+                      this product.
                     </FormDescription>
                   </div>
                   <FormControl>
@@ -161,7 +179,10 @@ export default function ListProduct() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Product Category</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select Product Category" />
@@ -171,7 +192,9 @@ export default function ListProduct() {
                       <SelectGroup>
                         <SelectLabel>Product Categories</SelectLabel>
                         {ProductCategories.map((item, i) => (
-                          <SelectItem key={item.value} value={item.value}>{item.label}</SelectItem>
+                          <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                          </SelectItem>
                         ))}
                       </SelectGroup>
                     </SelectContent>
@@ -186,7 +209,10 @@ export default function ListProduct() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Raw Material</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select Raw Material" />
@@ -195,8 +221,10 @@ export default function ListProduct() {
                     <SelectContent>
                       <SelectGroup>
                         <SelectLabel>Raw Materials</SelectLabel>
-                        {formOptions.map(item => (
-                          <SelectItem value={item.value}>{item.label}</SelectItem>
+                        {formOptions.map((item) => (
+                          <SelectItem value={item.value} key={item.value}>
+                            {item.label}
+                          </SelectItem>
                         ))}
                       </SelectGroup>
                     </SelectContent>
@@ -215,5 +243,4 @@ export default function ListProduct() {
       </div>
     </div>
   );
-};
-
+}
