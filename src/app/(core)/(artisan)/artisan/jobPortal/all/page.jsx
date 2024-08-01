@@ -1,177 +1,84 @@
-import React from "react";
-import DistrictSearch from "@/components/custom/DistrictSearch";
-import { Button } from "@/components/ui/button";
-import FilterSelect from "@/components/custom/Select";
+import Image from "next/image"; // Adjust the import based on your setup
+import { User } from "lucide-react"; // Adjust the import based on your setup
 import Link from "next/link";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardTitle,
-} from "@/components/ui/card";
-import { Filter } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import ImageCollage from "@/components/custom/ImageCollage";
-
-const districtsList = [
-  { value: "district1", label: "District 1" },
-  { value: "district2", label: "District 2" },
-  { value: "district3", label: "District 3" },
-  { value: "district4", label: "District 4" },
-  { value: "district5", label: "District 5" },
-];
-
-const cityList = [
-  { value: "city1", label: "City 1" },
-  { value: "city2", label: "City 2" },
-  { value: "city3", label: "City 3" },
-  { value: "city4", label: "City 4" },
-  { value: "city5", label: "City 5" },
-];
-
-const stateList = [
-  { value: "state1", label: "State 1" },
-  { value: "state2", label: "State 2" },
-  { value: "state3", label: "State 3" },
-  { value: "state4", label: "State 4" },
-  { value: "state5", label: "State 5" },
-];
-
-const workshopData = [
+const jobData = [
   {
-    title: "Workshop Title 1",
+    id: 1,
+    title: "Pay supplier invoices",
     description:
-      "Description for Workshop Title 1. This workshop will focus on various techniques and skills.",
-    address: "1 Workshop Street, City 1",
-    date: "2024-01-01",
-    workshop_level: "Beginner",
-    tags: ["pottery", "beginner", "basics"],
-    organizer: "Craft Guild",
-    price: 100,
-    is_conducted_by_artisan: true,
-    images: [
-      "/districtArtisanImage1.png",
-      "/districtArtisanImage2.png",
-      "/districtArtisanImage3.png",
-      "/districtArtisanImage4.png",
-    ],
+      "Our goal is to streamline SMB trade, making it easier and faster than ever.",
+    imageSrc: "/districtArtisanImage1.png",
   },
   {
-    title: "Workshop Title 2",
+    id: 2,
+    title: "Manage customer orders",
     description:
-      "Description for Workshop Title 2. This workshop will focus on various techniques and skills.",
-    address: "2 Workshop Street, City 2",
-    date: "2024-02-02",
-    workshop_level: "Intermediate",
-    tags: ["weaving", "intermediate", "skills"],
-    organizer: "Textile Arts Association",
-    price: 150,
-    is_conducted_by_artisan: true,
-    images: [
-      "/districtArtisanImage1.png",
-      "/districtArtisanImage2.png",
-      "/districtArtisanImage3.png",
-      "/districtArtisanImage4.png",
-    ],
+      "Ensure timely delivery and manage customer expectations effectively.",
+    imageSrc: "/districtArtisanImage2.png",
   },
   {
-    title: "Workshop Title 3",
+    id: 3,
+    title: "Track inventory",
     description:
-      "Description for Workshop Title 3. This workshop will focus on various techniques and skills.",
-    address: "3 Workshop Street, City 3",
-    date: "2024-03-03",
-    workshop_level: "Advanced",
-    tags: ["woodworking", "advanced", "techniques"],
-    organizer: "Woodcraft Society",
-    price: 200,
-    is_conducted_by_artisan: false,
-    images: [
-      "/districtArtisanImage1.png",
-      "/districtArtisanImage2.png",
-      "/districtArtisanImage3.png",
-      "/districtArtisanImage4.png",
-    ],
+      "Keep track of inventory levels and manage restocking efficiently.",
+    imageSrc: "/districtArtisanImage3.png",
   },
   {
-    title: "Workshop Title 4",
-    description:
-      "Description for Workshop Title 4. This workshop will focus on various techniques and skills.",
-    address: "4 Workshop Street, City 4",
-    date: "2024-04-04",
-    workshop_level: "Beginner",
-    tags: ["jewelry", "beginner", "design"],
-    organizer: "Gemcraft Association",
-    price: 120,
-    is_conducted_by_artisan: true,
-    images: [
-      "/districtArtisanImage1.png",
-      "/districtArtisanImage2.png",
-      "/districtArtisanImage3.png",
-      "/districtArtisanImage4.png",
-    ],
+    id: 4,
+    title: "Analyze sales data",
+    description: "Gain insights from sales data to drive business growth.",
+    imageSrc: "/districtArtisanImage4.png",
   },
+
+  // Add more jobs as needed
 ];
 
-export default function AllWorkshopView() {
-  const userType = "artisan";
-
-  if (userType !== "artisan") {
-    return <div className="text-black">ARTISAN NAHI HAI TU BSDK</div>;
-  }
-
-  return (
-    <main>
-      <center className="w-full h-fit py-5">
-        <section className="w-full justify-between items-center flex flex-wrap space-y-2 lg:space-y-0 py-2">
-          {workshopData.map((card) => (
-            <Card
-              key={card.id}
-              className="w-full md:w-[32%] md:my-5 bg-gray-100"
+const Feature6 = () => (
+  <main>
+    <center className="w-full h-fit py-5 text-gray-900">
+      <div className="flex flex-col gap-10 mb-4">
+        <div className="flex gap-2 flex-col">
+          <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
+            Jobs For You!
+          </h2>
+          <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">
+            Managing a small business today is already tough.
+          </p>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+        {jobData.map((job, index) => (
+          <div
+            key={job.id}
+            className={`bg-muted rounded-md p-6 aspect-square lg:h-[50vh] lg:aspect-auto flex justify-between flex-col relative ${
+              index % 4 === 3 || index % 4 === 0 ? "lg:col-span-2 " : ""
+            }`}
+          >
+            <Link
+              href="/artisan/jobPortal/Workshop"
+              className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-0"
             >
-              <CardContent>
-                <ImageCollage individualCardData={card} />
-                <Link href={`${card.title}`}>
-                  <div className="flex flex-col items-start text-left px-3 py-2">
-                    <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight w-full flex justify-between items-center mb-4">
-                      <p className="scroll-m-20 text-xl font-semibold tracking-tight">
-                        {card.title}
-                      </p>
-                      <p className="scroll-m-20 text-sm font-semibold tracking-tight text-slate-400">
-                        {card.date}
-                      </p>
-                    </CardTitle>
-                    <CardDescription className="text-justify text-sm md:text-xs font-normal text-gray-600 mb-2">
-                      {card.description}
-                    </CardDescription>
-                  </div>
-                </Link>
-              </CardContent>
-              <CardFooter className="px-2 space-x-2">
-                {card.tags.map((badge, index) => (
-                  <Badge
-                    key={index}
-                    className="px-3 py-2 text-xs bg-gray-300 text-black"
-                  >
-                    {badge}
-                  </Badge>
-                ))}
-              </CardFooter>
-            </Card>
-          ))}
-        </section>
-      </center>
-    </main>
-  );
-}
+              <Image
+                src={job.imageSrc}
+                fill={true}
+                className="object-cover mix-blend-overlay -z-10 rounded-md"
+              />
+            </Link>
+            <User className="w-8 h-8 z-10" fill="white" color="white" />
+            <div className="flex flex-col z-10">
+              <h3 className="text-2xl tracking-tight text-white font-bold mb-2">
+                {job.title}
+              </h3>
+              <p className=" max-w-xs font-light text-base text-slate-200">
+                {job.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </center>
+  </main>
+);
+
+export default Feature6;
