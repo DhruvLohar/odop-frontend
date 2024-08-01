@@ -1,7 +1,7 @@
 import { verifySession } from "./lib/auth";
 
 export async function middleware(request) {
-  //   // return await verifySession(request);
+  return await verifySession(request);
 }
 
 export const config = {
