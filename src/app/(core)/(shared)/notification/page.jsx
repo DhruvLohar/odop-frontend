@@ -11,9 +11,7 @@ export default function Component() {
       <div className="bg-background px-6 py-8 shadow-sm">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-medium text-black">Notifications</h2>
-          <Button className="text-black" variant="ghost" size="sm">
-            Mark all as read
-          </Button>
+          
         </div>
       </div>
       <div className="space-y-6 p-6">

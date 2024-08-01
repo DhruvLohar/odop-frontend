@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Dialog,DialogClose ,DialogTrigger, DialogContent } from '@/components/ui/dialog';
+import Link from 'next/link';
 
 export default function Component() {
   const [formData, setFormData] = useState({
@@ -112,9 +113,12 @@ export default function Component() {
               />
             </div>
           </div>
-          <Button type="submit" size="lg" className="w-full">
+         
+            <Button type="submit" size="lg" className="w-full">
             Pay Now
           </Button>
+          
+          
         </form>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogContent className="sm:max-w-[425px]">
@@ -123,7 +127,10 @@ export default function Component() {
               <p className="text-lg font-medium">Payment Successful!</p>
               <p className="text-muted-foreground">Your payment has been processed successfully.</p>
               <DialogClose asChild>
+              <Link href={"/order"}>
+            
                 <Button onClick={() => setIsDialogOpen(false)}>Close</Button>
+              </Link>
               </DialogClose>
             </div>
           </DialogContent>

@@ -49,7 +49,10 @@ export default function Navbar() {
         className={`w-full h-full flex justify-between items-center px-3 md:px-10 py-3 sticky top-0 bg-white z-20`}
       >
         <div className="flex items-c2enter">
-          <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
+          <Link href={"/"}>
+            <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
+          </Link>
+          
         </div>
         <div className="hidden md:flex space-x-6">
           {links.map((link) => (

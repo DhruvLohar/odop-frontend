@@ -6,6 +6,7 @@ export default function Component() {
   return (
     <div className="grid grid-cols-2 gap-6 w-full mx-auto p-4 sm:p-6">
       <div className="col-span-2 sm:col-span-1">
+        <h2 className="text-black text-2xl font-semibold mb-4">My orders</h2>
         <Card className="h-full w-full p-6 border-2 border-gray-100">
           <CardContent className="grid grid-cols-[1fr_auto] gap-4 items-center">
             <div className="grid gap-2">
