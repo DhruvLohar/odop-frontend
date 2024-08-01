@@ -92,7 +92,10 @@ export default function WorkShopView({ params }) {
     <main>
       <center className="w-full h-fit text-gray-900 ">
         <section className="w-full flex flex-col pb-5 space-y-4">
-          <ImageCollage individualCardData={individualCardData} />
+          <ImageCollage
+            individualCardData={individualCardData}
+            key={individualCardData.title}
+          />
           <h2 className="scroll-m-20 text-left text-3xl lg:text-4xl font-m mb-8 lg:font-semibold tracking-tight w-full">
             {individualCardData.title}
           </h2>
@@ -104,7 +107,10 @@ export default function WorkShopView({ params }) {
           </span>
           <div className="w-full flex justify-start space-x-1">
             {individualCardData.tags.map((badge) => (
-              <div className="bg-gray-200 px-3 py-2 text-xs font-light text-black rounded-2xl">
+              <div
+                className="bg-gray-200 px-3 py-2 text-xs font-light text-black rounded-2xl"
+                key={badge}
+              >
                 {badge}
               </div>
             ))}

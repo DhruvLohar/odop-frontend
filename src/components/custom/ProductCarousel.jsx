@@ -33,7 +33,10 @@ export default function ProductCarousel() {
     <Carousel setApi={setApi} className="w-full lg:w-[48vw] lg:h-[50vh]">
       <CarouselContent className="space-x-4 py-4 px-5">
         {Array.from({ length: 5 }).map((_, index) => (
-          <Card className="h-[35vh] lg:h-[50vh] w-[75vw] lg:w-[47vw] shrink-0 border-none shadow-none relative ">
+          <Card
+            className="h-[35vh] lg:h-[50vh] w-[75vw] lg:w-[47vw] shrink-0 border-none shadow-none relative "
+            key={index + 1}
+          >
             <Image
               src="/districtArtisanImage1.png"
               fill={true}

@@ -245,7 +245,7 @@ export default function DistrictView({ params }) {
           <Carousel opts={{ dragFree: true }}>
             <CarouselContent className="w-full flex space-x-4 p-2">
               {individualCardData.nearbyProducts.map((item) => (
-                <ProductCard product={item} />
+                <ProductCard product={item} key={item.id} />
               ))}
             </CarouselContent>
           </Carousel>

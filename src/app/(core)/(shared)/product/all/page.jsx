@@ -53,8 +53,8 @@ const ProductPage = () => {
       <h1 className="text-3xl font-bold">Explore all Products</h1>
       <div className="w-full justify-start flex lg:flex-row items-center flex-wrap">
         {products.map((product) => (
-          <div className="py-3">
-            <ProductCard key={product.id} product={product} />
+          <div className="py-3" key={product.id}>
+            <ProductCard product={product} />
           </div>
         ))}
       </div>
