@@ -5,29 +5,30 @@ import Link from "next/link";
 import CartModal from "./ChatBotModal";
 import { Menu, X, Bell, BotMessageSquare } from "lucide-react";
 
-const userLinks = [
-  { name: "My Profile", url: "/" },
-  { name: "Crowd Fundings", url: "/" },
-  { name: "Explore Products", url: "/product/all" },
-  { name: "Bulk Orders", url: "/" },
-];
-
-const artisanLinks = [
-  { name: "My Profile", url: `/artisan/${userName}` },
-  { name: "My Products", url: "/" },
-  { name: "Bulk Order Request", url: "/" },
-  { name: "Inventory", url: "/" },
-  { name: "WorkShops", url: "/workshop/all" },
-  { name: "Job Portal", url: "/artisan/jobPortal/all" },
-  { name: "Rental Machines", url: "/artisan/rentalMachines/all" },
-  { name: "Inter District Collab", url: "/" },
-  { name: "Chat Bot", url: "/" },
-];
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const userType = "artisan";
   const userName = "Mr. John Doe";
+
+  const userLinks = [
+    { name: "My Profile", url: "/" },
+    { name: "Crowd Fundings", url: "/" },
+    { name: "Explore Products", url: "/product/all" },
+    { name: "Bulk Orders", url: "/" },
+  ];
+
+  const artisanLinks = [
+    { name: "My Profile", url: `/artisan/${userName}` },
+    { name: "My Products", url: "/" },
+    { name: "Bulk Order Request", url: "/" },
+    { name: "Inventory", url: "/" },
+    { name: "WorkShops", url: "/workshop/all" },
+    { name: "Job Portal", url: "/artisan/jobPortal/all" },
+    { name: "Rental Machines", url: "/artisan/rentalMachines/all" },
+    { name: "Inter District Collab", url: "/" },
+    { name: "Chat Bot", url: "/" },
+  ];
 
   const links = userType === "artisan" ? artisanLinks : userLinks;
 
@@ -88,7 +89,6 @@ export default function Navbar() {
             </Link>
           </div>
         ))}
-        a 11 c
       </div>
       <CartModal isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </>
