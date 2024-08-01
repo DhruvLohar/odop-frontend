@@ -104,7 +104,10 @@ export default function WorkShopView({ params }) {
           </span>
           <div className="w-full flex justify-start space-x-1">
             {individualCardData.tags.map((badge) => (
-              <div className="bg-gray-200 px-3 py-2 text-xs font-light text-black rounded-2xl">
+              <div
+                className="bg-gray-200 px-3 py-2 text-xs font-light text-black rounded-2xl"
+                key={badge}
+              >
                 {badge}
               </div>
             ))}

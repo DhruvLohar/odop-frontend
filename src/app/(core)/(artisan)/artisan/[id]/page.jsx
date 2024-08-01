@@ -219,7 +219,7 @@ export default function ArtisanProfile({ params }) {
           <Carousel opts={{ dragFree: true }}>
             <CarouselContent className="w-full flex space-x-4 p-2">
               {description.products.map((item) => (
-                <ProductCard product={item} />
+                <ProductCard product={item} key={item.id} />
               ))}
             </CarouselContent>
           </Carousel>
@@ -237,7 +237,10 @@ export default function ArtisanProfile({ params }) {
             <div className="lg:flex lg:flex-col hidden items-start w-full justify-center space-y-2">
               <div className="flex items-start justify-start space-x-4 py-2 w-full">
                 {tipPrices.map((tip) => (
-                  <Button className="text-gray-700 bg-gray-300  rounded-full px-5 py-10 border-none flex text-xl font-bold items-center w-fit hover:text-white">
+                  <Button
+                    className="text-gray-700 bg-gray-300  rounded-full px-5 py-10 border-none flex text-xl font-bold items-center w-fit hover:text-white"
+                    key={tip}
+                  >
                     <IndianRupee size={24} />
                     {tip}
                   </Button>
@@ -260,7 +263,10 @@ export default function ArtisanProfile({ params }) {
                 </SheetHeader>
                 <div className="flex items-start justify-start space-x-4 py-4">
                   {tipPrices.map((tip) => (
-                    <Button className="text-blue-950 bg-white rounded-full p-2 border-none flex text-xs font-bold items-center w-fit hover:text-white">
+                    <Button
+                      className="text-blue-950 bg-white rounded-full p-2 border-none flex text-xs font-bold items-center w-fit hover:text-white"
+                      key={tip}
+                    >
                       <IndianRupee size={14} />
                       {tip}
                     </Button>

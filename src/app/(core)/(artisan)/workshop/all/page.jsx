@@ -1,55 +1,11 @@
 import React from "react";
-import DistrictSearch from "@/components/custom/DistrictSearch";
-import FilterSelect from "@/components/custom/Select";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Calendar, Clock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import ImageCollage from "@/components/custom/ImageCollage";
-
-const districtsList = [
-  { value: "district1", label: "District 1" },
-  { value: "district2", label: "District 2" },
-  { value: "district3", label: "District 3" },
-  { value: "district4", label: "District 4" },
-  { value: "district5", label: "District 5" },
-];
-
-const cityList = [
-  { value: "city1", label: "City 1" },
-  { value: "city2", label: "City 2" },
-  { value: "city3", label: "City 3" },
-  { value: "city4", label: "City 4" },
-  { value: "city5", label: "City 5" },
-];
-
-const stateList = [
-  { value: "state1", label: "State 1" },
-  { value: "state2", label: "State 2" },
-  { value: "state3", label: "State 3" },
-  { value: "state4", label: "State 4" },
-  { value: "state5", label: "State 5" },
-];
 
 const workshopData = [
   {
@@ -142,6 +98,7 @@ export default function AllWorkshopView() {
             {card.tags.map((badge) => (
               <div
                 className={`rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground`}
+                key={badge}
               >
                 {badge}
               </div>
@@ -181,7 +138,7 @@ export default function AllWorkshopView() {
         </div>
         <section className="w-full justify-between items-center flex flex-col lg:flex-row lg:flex-wrap space-y-2 lg:space-y-0 py-2">
           {workshopData.map((card) => (
-            <Component card={card} />
+            <Component card={card} key={card.title} />
           ))}
         </section>
       </center>

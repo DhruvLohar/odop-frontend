@@ -31,14 +31,21 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 function ProfileMenu() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const routes = [
     { title: "Edit Profile", Icon: User },
-    { title: "My Orders", Icon: Box, url: '/artisan/manage/orders' },
-    { title: "Manage Products", Icon: PenTool, url: '/artisan/manage/inventory' },
-    { title: "Get in touch requests", Icon: List, url: '/artisan/manage/contact-queries' },
+    { title: "My Orders", Icon: Box, url: "/artisan/manage/orders" },
+    {
+      title: "Manage Products",
+      Icon: PenTool,
+      url: "/artisan/manage/inventory",
+    },
+    {
+      title: "Get in touch requests",
+      Icon: List,
+      url: "/artisan/manage/contact-queries",
+    },
   ];
 
   return (
@@ -60,8 +67,8 @@ function ProfileMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={async () => {
-            await logout()
-            router.push("/login")
+            await logout();
+            router.push("/login");
           }}
         >
           <LogOut className="mr-2 h-4 w-4" />
@@ -106,7 +113,7 @@ export default function ArtisanProfile() {
                   <Link href={"/brochure"}>
                     <Button>View Brochure</Button>
                   </Link>
-                  
+
                   <ContactArtisanModal />
                   <ProfileMenu />
                 </div>
@@ -161,8 +168,11 @@ export default function ArtisanProfile() {
               Similar Artisans
             </h4>
             <div className="w-full flex justify-start items-center space-x-2">
-              {Array.from({ length: 3 }).map((artisan) => (
-                <div className="flex flex-col items-center justify-center w-full">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <div
+                  className="flex flex-col items-center justify-center w-full"
+                  key={index + 1}
+                >
                   <Avatar className="h-20 w-20 border-white">
                     <AvatarImage
                       className="object-cover"

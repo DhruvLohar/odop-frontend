@@ -10,8 +10,8 @@ export default function Navbar() {
   const [cartOpen, setCartOpen] = useState(false);
   const userType = "artisan";
   const userName = "Mr. John Doe";
-  const usertype2="user"
-  const userName2 = 'Mr. Sahil Doe'
+  const usertype2 = "user";
+  const userName2 = "Mr. Sahil Doe";
 
   const userLinks = [
     { name: "My Profile", url: "/user" },
@@ -48,11 +48,15 @@ export default function Navbar() {
       <div
         className={`w-full h-full flex justify-between items-center px-3 md:px-10 py-3 sticky top-0 bg-white z-20`}
       >
-        <div className="flex items-c2enter">
+        <div className="flex items-center">
           <Link href={"/"}>
-            <Image src="/odopLogo.png" height={100} width={100} alt="ODOP Logo" />
+            <Image
+              src="/odopLogo.png"
+              height={100}
+              width={100}
+              alt="ODOP Logo"
+            />
           </Link>
-          
         </div>
         <div className="hidden md:flex space-x-6">
           {links.map((link) => (
@@ -85,7 +89,9 @@ export default function Navbar() {
           <div
             className="hover:bg-slate-950 rounded-lg w-full p-3 flex justify-start mb-1"
             key={link.url}
-          >            <Link
+          >
+            {" "}
+            <Link
               href={link.url}
               onClick={() => setOpen(false)}
               className="text-white text-2xl font-bold"
