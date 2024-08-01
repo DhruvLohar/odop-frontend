@@ -1,205 +1,219 @@
 "use client"
 
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 
-import { useState } from 'react';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useMemo, useState } from 'react';
+import { Switch } from "@/components/ui/switch";
+import { ProductCategories, ProductRawMaterials } from "@/lib/constants/productCategories";
+import { Textarea } from "@/components/ui/textarea";
 
-const ListProduct = () => {
-  const [product, setProduct] = useState({
-    title: '',
-    image: null,
-    price: '',
-    description: '',
-    backstory: '',
-    otherDetails: '',
-    dimensions: {
-      width: '',
-      length: '',
-      height: '',
-      weight: '',
+const dimensionsSchema = z.object({
+  width: z.string().min(1, "Width is required"),
+  length: z.string().min(1, "Length is required"),
+  height: z.string().min(1, "Height is required"),
+  weight: z.string().min(1, "Weight is required"),
+});
+
+const formSchema = z.object({
+  "title": z.string().min(1).max(255),
+  "description": z.string().min(1).max(9999),
+  "back_story": z.string().min(1).optional(),
+  "price": z.coerce.number().gte(1),
+  "is_customizable": z.boolean(),
+  "category": z.string(),
+  "raw_material": z.string()
+})
+
+export default function ListProduct() {
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      back_story: "",
+      price: 0,
+      category: "food",
     },
-    rawMaterial: '',
-  });
+  })
 
-  const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
-    if (type === 'file') {
-      setProduct({ ...product, [name]: files[0] });
-    } else if (name in product.dimensions) {
-      setProduct({
-        ...product,
-        dimensions: { ...product.dimensions, [name]: value },
-      });
-    } else {
-      setProduct({ ...product, [name]: value });
-    }
-  };
+  const formOptions = useMemo(() => {
+    return ProductRawMaterials[form.getValues().category]
+  }, [form.getValues().category]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(product);
-  };
+  function onSubmit(values) {
+    console.log(values)
+  }
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl w-full space-y-8">
-        <div>
-          <h1 className="text-center text-3xl font-extrabold text-gray-900">List a New Product</h1>
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
-                <input
-                  type="text"
-                  id="title"
-                  name="title"
-                  value={product.title}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block h-10 bg-gray-300 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label htmlFor="image" className="block text-sm font-medium text-gray-700">Image</label>
-                <input
-                  type="file"
-                  id="image"
-                  name="image"
-                  accept="image/*"
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
-                <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  value={product.price}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-            </div>
+    <div className="min-h-screen flex items-start justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl w-full">
+        <h1 className="text-center text-3xl font-extrabold text-gray-900 mb-2">List a New Product</h1>
+        <p className='text-center text-slate-400 mb-6'>Fill the form below in order to list your product on the Global Marketplace</p>
 
-            <div>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
-              <textarea
-                id="description"
-                name="description"
-                value={product.description}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              />
-            </div>
+        <Form {...form}>
+          <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 
-            <div>
-              <label htmlFor="backstory" className="block text-sm font-medium text-gray-700">Backstory</label>
-              <textarea
-                id="backstory"
-                name="backstory"
-                value={product.backstory}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              />
-            </div>
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Title</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Title" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-            <div>
-              <label htmlFor="otherDetails" className="block text-sm font-medium text-gray-700">Other Product Details</label>
-              <textarea
-                id="otherDetails"
-                name="otherDetails"
-                value={product.otherDetails}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              />
-            </div>
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Product Description</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Describe your product ..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-            <div className="grid grid-cols-4 gap-4">
-              <div>
-                <label htmlFor="width" className="block text-sm font-medium text-gray-700">Width</label>
-                <input
-                  type="number"
-                  id="width"
-                  name="width"
-                  value={product.dimensions.width}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label htmlFor="length" className="block text-sm font-medium text-gray-700">Length</label>
-                <input
-                  type="number"
-                  id="length"
-                  name="length"
-                  value={product.dimensions.length}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label htmlFor="height" className="block text-sm font-medium text-gray-700">Height</label>
-                <input
-                  type="number"
-                  id="height"
-                  name="height"
-                  value={product.dimensions.height}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label htmlFor="weight" className="block text-sm font-medium text-gray-700">Weight</label>
-                <input
-                  type="number"
-                  id="weight"
-                  name="weight"
-                  value={product.dimensions.weight}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-            </div>
+            <FormField
+              control={form.control}
+              name="back_story"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Back Story</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Backstory" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    Any specific back story related to this product, which you would like everyone to know about!
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-            <div>
-              <label htmlFor="rawMaterial" className="block text-sm font-medium text-gray-700">Raw Material</label>
-              <input
-                type="text"
-                id="rawMaterial"
-                name="rawMaterial"
-                value={product.rawMaterial}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                placeholder="Raw Material"
-              />
-            </div>
-          </div>
+            <FormField
+              control={form.control}
+              name="price"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Product Price</FormLabel>
+                  <FormControl>
+                    <Input type="number" placeholder="" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+            <FormField
+              control={form.control}
+              name="is_customizable"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-center justify-between rounded-lg">
+                  <div className="space-y-0.5">
+                    <FormLabel className="text-base">Is Customizable?</FormLabel>
+                    <FormDescription className="text-xs">
+                      Whether the user can know or add any custom build note for this product.
+                    </FormDescription>
+                  </div>
+                  <FormControl>
+                    <Switch
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="category"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Product Category</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Product Category" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Product Categories</SelectLabel>
+                        {ProductCategories.map((item, i) => (
+                          <SelectItem key={item.value} value={item.value}>{item.label}</SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="raw_material"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Raw Material</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Raw Material" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Raw Materials</SelectLabel>
+                        {formOptions.map(item => (
+                          <SelectItem value={item.value}>{item.label}</SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                  <FormDescription>
+                    Raw material used as base for this product.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit">Submit</Button>
+          </form>
+        </Form>
       </div>
     </div>
   );
 };
 
-export default ListProduct;

@@ -1,4 +1,4 @@
-export default [
+export const StatesAndDistrict = [
   {
     "state": "Andhra Pradesh",
     "districts": [
@@ -882,3 +882,5 @@ export default [
     ]
   }
 ]
+
+export const States = StatesAndDistrict.map(item => item.state);
