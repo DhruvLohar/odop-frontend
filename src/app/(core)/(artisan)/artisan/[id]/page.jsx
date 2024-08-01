@@ -9,9 +9,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { ExternalLink, IndianRupee } from "lucide-react";
 import ImageCollage from "@/components/custom/ImageCollage";
 import InputForm from "@/components/custom/BuyCoffeeInput";
+import ProductCard from "@/components/custom/ProductCard";
 
 const tipPrices = [50, 70, 90];
 
@@ -33,6 +35,50 @@ const artisanInfo = [
       { label: "Happy Customers", value: 100 },
       { label: "Happy Customers", value: 100 },
     ],
+    products: [
+      {
+        id: 1,
+        name: "Wood Craft",
+        location: "Ratnagiri, Maharashtra",
+        price: 200,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 2,
+        name: "Wood Toy",
+        location: "Pune, Maharashtra",
+        price: 50,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+      {
+        id: 3,
+        name: "Wood Tabla",
+        location: "Shimla, Himachal Pradesh",
+        price: 150,
+        imageUrl: "/districtArtisanImage3.png",
+      },
+      {
+        id: 4,
+        name: "Grapes",
+        location: "Nashik, Maharashtra",
+        price: 120,
+        imageUrl: "/districtArtisanImage4.png",
+      },
+      {
+        id: 5,
+        name: "Orange",
+        location: "Nagpur, Maharashtra",
+        price: 80,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 6,
+        name: "Pineapple",
+        location: "Goa",
+        price: 60,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+    ],
   },
   {
     title: "Ms. Jane Doe",
@@ -50,6 +96,50 @@ const artisanInfo = [
       { label: "Products Sold", value: 20 },
       { label: "Happy Customers", value: 200 },
       { label: "Happy Customers", value: 200 },
+    ],
+    products: [
+      {
+        id: 1,
+        name: "Wood Craft",
+        location: "Ratnagiri, Maharashtra",
+        price: 200,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 2,
+        name: "Wood Toy",
+        location: "Pune, Maharashtra",
+        price: 50,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+      {
+        id: 3,
+        name: "Wood Tabla",
+        location: "Shimla, Himachal Pradesh",
+        price: 150,
+        imageUrl: "/districtArtisanImage3.png",
+      },
+      {
+        id: 4,
+        name: "Grapes",
+        location: "Nashik, Maharashtra",
+        price: 120,
+        imageUrl: "/districtArtisanImage4.png",
+      },
+      {
+        id: 5,
+        name: "Orange",
+        location: "Nagpur, Maharashtra",
+        price: 80,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 6,
+        name: "Pineapple",
+        location: "Goa",
+        price: 60,
+        imageUrl: "/districtArtisanImage2.png",
+      },
     ],
   },
 ];
@@ -121,6 +211,18 @@ export default function ArtisanProfile({ params }) {
             Product Gallery
           </h2>
           <ImageCollage individualCardData={description} />
+        </section>
+        <section className="w-full flex flex-col py-4 space-y-4">
+          <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-center w-full lg:text-4xl">
+            Products
+          </h3>
+          <Carousel opts={{ dragFree: true }}>
+            <CarouselContent className="w-full flex space-x-4 p-2">
+              {description.products.map((item) => (
+                <ProductCard product={item} />
+              ))}
+            </CarouselContent>
+          </Carousel>
         </section>
         <section className="flex flex-col w-full p-5 md:px-10 space-y-2">
           <h2 className="scroll-m-20 text-2xl lg:text-3xl font-semibold tracking-tight text-left w-full">
