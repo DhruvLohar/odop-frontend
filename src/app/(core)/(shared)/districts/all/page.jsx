@@ -115,7 +115,7 @@ const cardData = [
 export default function AllDistrictView() {
   return (
     <main>
-      <center className="w-full h-fit py-5">
+      <center className="w-full h-fit py-5 text-gray-900">
         <section className="w-full flex justify-between space-x-4 items-center">
           <div>
             <DistrictSearch districts={districtsList} />
@@ -126,7 +126,39 @@ export default function AllDistrictView() {
               <SheetTrigger asChild>
                 <Filter color="#000000" />
               </SheetTrigger>
-              <SheetContent side="bottom">
+              <SheetContent side="bottom" className="lg:hidden">
+                <SheetHeader>
+                  <SheetTitle>Filters</SheetTitle>
+                  <SheetDescription>Choose Your Preference</SheetDescription>
+                </SheetHeader>
+                <div className="flex flex-col items-start justify-center space-y-6 py-4">
+                  <div className="space-x-4 flex items-center w-full">
+                    <label htmlFor="name">State</label>
+                    <FilterSelect
+                      placeholder="Select a State"
+                      label="State"
+                      options={stateList}
+                    />
+                  </div>
+                  <div className="space-x-2 flex items-center justify-center w-full">
+                    <label htmlFor="username">City</label>
+                    <FilterSelect
+                      placeholder="Select a City"
+                      label="City"
+                      options={cityList}
+                    />
+                  </div>
+                </div>
+                <SheetFooter>
+                  <SheetClose asChild>
+                    <Button type="submit">Save changes</Button>
+                  </SheetClose>
+                </SheetFooter>
+              </SheetContent>
+              <SheetContent
+                side="right"
+                className="hidden lg:block text-gray-900"
+              >
                 <SheetHeader>
                   <SheetTitle>Filters</SheetTitle>
                   <SheetDescription>Choose Your Preference</SheetDescription>
