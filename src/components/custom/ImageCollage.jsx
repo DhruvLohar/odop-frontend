@@ -41,7 +41,8 @@ const ImageCollage = ({ individualCardData }) => {
                 <div
                   className={`h-[25vh] w-[40vw] ${
                     pathName === "/districts/all" ||
-                    pathName === "/workshop/all"
+                    pathName === "/workshop/all" ||
+                    pathName === "/events/all"
                       ? " md:h-[40vh] md:w-[25vw] "
                       : " md:h-[55vh] "
                   } relative flex-shrink-0 cursor-pointer`}
@@ -59,7 +60,8 @@ const ImageCollage = ({ individualCardData }) => {
                 <div
                   className={`flex flex-col h-[24vh] ${
                     pathName === "/districts/all" ||
-                    pathName === "/workshop/all"
+                    pathName === "/workshop/all" ||
+                    pathName === "/events/all"
                       ? " md:h-[39vh]"
                       : "md:h-[54vh]"
                   } space-y-2`}
@@ -67,7 +69,8 @@ const ImageCollage = ({ individualCardData }) => {
                   <div
                     className={`h-1/2 ${
                       pathName === "/districts/all" ||
-                      pathName === "/workshop/all"
+                      pathName === "/workshop/all" ||
+                      pathName === "/events/all"
                         ? "w-[40vw] md:w-[25vw]"
                         : "w-[35vw]"
                     } relative flex-shrink-0 cursor-pointer`}
@@ -83,7 +86,8 @@ const ImageCollage = ({ individualCardData }) => {
                   <div
                     className={`h-1/2 ${
                       pathName === "/districts/all" ||
-                      pathName === "/workshop/all"
+                      pathName === "/workshop/all" ||
+                      pathName === "/events/all"
                         ? "w-[40vw] md:w-[25vw]"
                         : "w-[35vw]"
                     } relative flex-shrink-0 cursor-pointer`}
@@ -113,7 +117,8 @@ const ImageCollage = ({ individualCardData }) => {
                 <div
                   className={`h-[25vh] w-[40vw] ${
                     pathName === "/districts/all" ||
-                    pathName === "/workshop/all"
+                    pathName === "/workshop/all" ||
+                    pathName === "/events/all"
                       ? " md:h-[40vh] md:w-[25vw] "
                       : " md:h-[55vh] "
                   } relative flex-shrink-0 cursor-pointer`}
