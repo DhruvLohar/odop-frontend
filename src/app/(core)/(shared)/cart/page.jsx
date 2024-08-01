@@ -8,18 +8,18 @@ const Page = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "WoodenCraft",
-      price: 56,
+      name: "Wood Craft",
+      price: 1200,
       quantity: 1,
-      seller: "Mr. John Doe",
+      seller: "Sameer Mistry",
       image: "/districtArtisanImage1.png",
     },
     {
       id: 2,
-      name: "SteelCraft",
-      price: 44,
+      name: "Wood Toy",
+      price: 300,
       quantity: 1,
-      seller: "Mr. Sahil Doe",
+      seller: "Ramesh Shinde",
       image: "/districtArtisanImage2.png",
     },
   ]);
@@ -47,7 +47,7 @@ const Page = () => {
 
   return (
     <>
-      <main className="flex min-h-screen md:min-w-full md:w-3/5 md:px-4 px-5 flex-col md:flex-row mb-14 text-gray-900">
+      <main className="flex min-h-screen md:min-w-full md:w-3/5 md:px-4 px-5 py-10 flex-col md:flex-row mb-14 text-gray-900">
         <div className="w-full top-0 md:w-1/2 md:mt-0 md:mr-5">
           <div className="header mb-6 md:mb-10">
             <h1 className="mb-2 text-3xl md:text-4xl font-black">Cart</h1>
