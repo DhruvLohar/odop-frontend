@@ -1,8 +1,10 @@
 import React from "react";
 import DistrictSearch from "@/components/custom/DistrictSearch";
-import { Button } from "@/components/ui/button";
 import FilterSelect from "@/components/custom/Select";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Sheet,
   SheetClose,
@@ -21,7 +23,7 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card";
-import { Filter } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import ImageCollage from "@/components/custom/ImageCollage";
 
@@ -131,44 +133,55 @@ export default function AllWorkshopView() {
     return <div className="text-black">ARTISAN NAHI HAI TU BSDK</div>;
   }
 
+  const Component = ({ card }) => {
+    return (
+      <Card className="w-[31%] max-w-lg overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl content-start my-8">
+        <ImageCollage individualCardData={card} />
+        <div className="p-4">
+          <div className="mb-4 flex items-center gap-2">
+            {card.tags.map((badge) => (
+              <div
+                className={`rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground`}
+              >
+                {badge}
+              </div>
+            ))}
+          </div>
+          <h3 className="mb-2 text-lg font-bold text-left">{card.title}</h3>
+          <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
+            <Calendar className="h-4 w-4" />
+            <span>{card.date}</span>
+            <Separator orientation="vertical" className="h-4" />
+            <Clock className="h-4 w-4" />
+            <span>9:00 AM - 5:00 PM</span>
+          </div>
+          <p className="mb-4 text-muted-foreground text-xs text-justify">
+            {card.description}
+          </p>
+          <Link href={`${card.title}`} className="w-full">
+            <Button className="w-full">Register Now</Button>
+          </Link>
+        </div>
+      </Card>
+    );
+  };
+
   return (
     <main>
-      <center className="w-full h-fit py-5">
+      <center className="w-full h-fit py-5 text-gray-900">
+        <div className="flex flex-col gap-10">
+          <div className="flex gap-2 flex-col">
+            <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
+              WorkShops For You!
+            </h2>
+            <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">
+              Educating and Enhancing your Skills
+            </p>
+          </div>
+        </div>
         <section className="w-full justify-between items-center flex flex-wrap space-y-2 lg:space-y-0 py-2">
           {workshopData.map((card) => (
-            <Card
-              key={card.id}
-              className="w-full md:w-[32%] md:my-5 bg-gray-100"
-            >
-              <CardContent>
-                <ImageCollage individualCardData={card} />
-                <Link href={`/workshop/${card.title}`}>
-                  <div className="flex flex-col items-start text-left px-3 py-2">
-                    <CardTitle className="scroll-m-20 text-lg font-semibold tracking-tight w-full flex justify-between items-center mb-4">
-                      <p className="scroll-m-20 text-xl font-semibold tracking-tight">
-                        {card.title}
-                      </p>
-                      <p className="scroll-m-20 text-sm font-semibold tracking-tight text-slate-400">
-                        {card.date}
-                      </p>
-                    </CardTitle>
-                    <CardDescription className="text-justify text-sm md:text-xs font-normal text-gray-600 mb-2">
-                      {card.description}
-                    </CardDescription>
-                  </div>
-                </Link>
-              </CardContent>
-              <CardFooter className="px-2 space-x-2">
-                {card.tags.map((badge, index) => (
-                  <Badge
-                    key={index}
-                    className="px-3 py-2 text-xs bg-gray-300 text-black"
-                  >
-                    {badge}
-                  </Badge>
-                ))}
-              </CardFooter>
-            </Card>
+            <Component card={card} />
           ))}
         </section>
       </center>
