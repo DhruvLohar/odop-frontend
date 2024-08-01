@@ -24,9 +24,6 @@ const notifications = [
 const NotificationCard = ({ photo, heading, description }) => (
   <div>
     <div className="bg-white hover:bg-slate-100 rounded-lg p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center ">
-            <div className='w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black'>
-            <img src={photo} alt={heading} className='w-full h-full rounded-full object-cover'/>
-            </div>
             <div>
             <h2 className="text-lg sm:text-xl font-bold mb-2">{heading}</h2>
             <p className="text-gray-600 text-sm sm:text-base">{description}</p>

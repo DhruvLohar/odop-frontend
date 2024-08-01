@@ -2,7 +2,7 @@ import ImageCollage from "@/components/custom/ImageCollage";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 
-const jobPortalData = [
+const workshopData = [
   {
     title: "Workshop Title 1",
     description:
@@ -77,14 +77,14 @@ const jobPortalData = [
   },
 ];
 
-export default function JobPortalView({ params }) {
+export default function WorkShopView({ params }) {
   const userType = "artisan";
 
   if (userType !== "artisan") {
     return <div className="text-black">ARTISAN NAHI HAI TU BSDK</div>;
   }
 
-  const individualCardData = jobPortalData.find(
+  const individualCardData = workshopData.find(
     (card) => card.title === decodeURIComponent(params.id)
   );
 

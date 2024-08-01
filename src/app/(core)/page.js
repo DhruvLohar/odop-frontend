@@ -151,8 +151,13 @@ export default function Home() {
 
   return (
     <main>
-      <center className="w-full h-fit px-5">
-        <section className="flex flex-col w-full px-1 lg:px-5 text-left lg:py-4">
+
+     
+
+
+      <center className="w-full h-fit">
+        <section className="flex flex-col w-full lg:px-5 text-left lg:py-4">
+
           <h2 className="text-lg lg:text-2xl text-blue-950 lg:font-semibold font-medium tracking-tight">
             Good Afternoon, {name}
           </h2>
@@ -171,12 +176,12 @@ export default function Home() {
           <Carousel opts={{ dragFree: true }}>
             <CarouselContent className="w-full flex space-x-4 p-3">
               {nearbyProducts.map((product) => (
-                <ProductCard key={product.id} product={product}/>
+                <ProductCard key={product.id} product={product} />
               ))}
             </CarouselContent>
           </Carousel>
         </section>
-        <section className="flex flex-col w-full px-1 md:px-5 text-left">  
+        <section className="flex flex-col w-full px-1 md:px-5 text-left">
           <HomePageExplore exploreCategories={exploreCategories} />
         </section>
       </center>
