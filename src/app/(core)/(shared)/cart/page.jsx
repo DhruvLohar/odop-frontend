@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { IndianRupee } from "lucide-react";
+import Link from "next/link";
 
 const Page = () => {
   const [cartItems, setCartItems] = useState([
@@ -132,6 +133,7 @@ const Page = () => {
               <div>₹{calculateTotal()}</div>
             </div>
           </div>
+          <Link href={"/payments"}>
           <div
             className={`w-full h-16 rounded-full flex justify-center items-center ${
               cartItems.length === 0
@@ -143,6 +145,8 @@ const Page = () => {
               {cartItems.length === 0 ? "Checkout (Disabled)" : "Checkout"}
             </h1>
           </div>
+          </Link>
+          
         </div>
       </main>
     </>
