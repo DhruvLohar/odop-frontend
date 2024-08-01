@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 
 const jobPortalData = [
   {
-    title: "Workshop Title 1",
+    title: "Workshop",
     description:
       "Description for Workshop Title 1. This workshop will focus on various techniques and skills.",
     address: "1 Workshop Street, City 1",
