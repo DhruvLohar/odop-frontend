@@ -5,29 +5,30 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Bell } from "lucide-react";
 
-const userLinks = [
-  { name: "My Profile", url: "/" },
-  { name: "Crowd Fundings", url: "/" },
-  { name: "NewsLetter", url: "/" },
-  { name: "Explore Products", url: "/" },
-  { name: "Bulk Orders", url: "/" },
-];
-
-const artisanLinks = [
-  { name: "My Profile", url: "/" },
-  { name: "My Products", url: "/" },
-  { name: "Bulk Order Request", url: "/" },
-  { name: "Inventory", url: "/" },
-  { name: "WorkShops", url: "/" },
-  { name: "Job Portal", url: "/" },
-  { name: "Rental Machines", url: "/" },
-  { name: "Inter District Collab", url: "/" },
-];
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const userType = "artisan";
-  const links = userType === "artisan" ? userLinks : artisanLinks;
+  const userName = "Mr. John Doe";
+
+  const userLinks = [
+    { name: "My Profile", url: "/" },
+    { name: "Crowd Fundings", url: "/" },
+    { name: "Explore Products", url: "/product/all" },
+    { name: "Bulk Orders", url: "/" },
+  ];
+
+  const artisanLinks = [
+    { name: "My Profile", url: `/artisan/${userName}` },
+    { name: "My Products", url: "/" },
+    { name: "Bulk Order Request", url: "/" },
+    { name: "Inventory", url: "/" },
+    { name: "WorkShops", url: "/workshop/all" },
+    { name: "Job Portal", url: "/artisan/jobPortal/all" },
+    { name: "Rental Machines", url: "/artisan/rentalMachines/all" },
+    { name: "Inter District Collab", url: "/" },
+  ];
+
+  const links = userType === "artisan" ? artisanLinks : userLinks;
 
   return (
     <>
