@@ -55,7 +55,7 @@ export default function Login() {
 
         toast(res.message)
         if (res.success) {
-            // router.push('/')
+            router.push('/')
         } 
     }
 

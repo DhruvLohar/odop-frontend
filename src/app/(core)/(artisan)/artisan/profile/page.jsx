@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { logout } from "@/lib/auth";
 
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import {
@@ -27,13 +28,17 @@ import {
   User,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function ProfileMenu() {
+
+  const router = useRouter()
+
   const routes = [
     { title: "Edit Profile", Icon: User },
-    { title: "My Orders", Icon: Box },
-    { title: "Manage Products", Icon: PenTool },
-    { title: "Wholesales Request", Icon: List },
+    { title: "My Orders", Icon: Box, url: '/artisan/manage/orders' },
+    { title: "Manage Products", Icon: PenTool, url: '/artisan/manage/inventory' },
+    { title: "Get in touch requests", Icon: List, url: '/artisan/manage/contact-queries' },
   ];
 
   return (
@@ -53,7 +58,12 @@ function ProfileMenu() {
           ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={async () => {
+            await logout()
+            router.push("/login")
+          }}
+        >
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>

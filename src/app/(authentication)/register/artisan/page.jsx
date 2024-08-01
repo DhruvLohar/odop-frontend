@@ -35,6 +35,7 @@ import { z } from "zod";
 import { useMemo, useState } from "react";
 import { States, StatesAndDistrict } from "@/lib/stateDistrictData";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const ACCEPTED_IMAGE_TYPES = ['png', 'jpeg', 'jpg'];
 
@@ -347,7 +348,9 @@ export default function RegisterArtisan() {
                                     Next
                                 </Button>
                             ) : (
-                                <Button type="submit">Submit</Button>
+                                <Link href={"/login"}>
+                                    <Button>Submit</Button>
+                                </Link>
                             )}
                         </div>
                     </form>

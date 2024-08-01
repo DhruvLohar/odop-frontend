@@ -20,7 +20,7 @@ export default function OnBoarding() {
             />
 
             <div className="w-full flex flex-col items-start">
-                <h1 className="scroll-m-20 text-3xl mb-2 font-semibold tracking-tight lg:text-5xl">
+                <h1 className="scroll-m-20 text-3xl mb-2 font-semibold tracking-tight">
                     How do you want to join
                     our platform?
                 </h1>
@@ -36,7 +36,7 @@ export default function OnBoarding() {
                     onClick={() => setSelected("user")}
                 >
                     <div className="flex flex-col items-start">
-                        <h1 className="scroll-m-20 text-2xl mb-2 font-bold lg:text-5xl">
+                        <h1 className="scroll-m-20 text-2xl mb-2 font-bold lg:text-3xl">
                             User
                         </h1>
                         <p className="text-md text-slate-500">
@@ -54,7 +54,7 @@ export default function OnBoarding() {
                     onClick={() => setSelected("artisan")}
                 >
                     <div className="flex flex-col items-start">
-                        <h1 className="scroll-m-20 text-2xl mb-2 font-bold lg:text-5xl">
+                        <h1 className="scroll-m-20 text-2xl mb-2 font-bold lg:text-3xl">
                             Artisan
                         </h1>
                         <p className="text-md text-slate-500">
@@ -67,7 +67,7 @@ export default function OnBoarding() {
 
             <Link
                 className="w-full"
-                href={selected === "user" ? "/register/user" : "/register/artisan"}
+                href={selected === "user" ? "/login" : "/register/artisan"}
             >
                 <Button 
                     className="w-full py-8 text-lg mt-8"
