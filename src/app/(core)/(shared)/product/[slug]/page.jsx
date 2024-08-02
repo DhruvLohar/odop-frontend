@@ -195,14 +195,12 @@ function Page({ params }) {
 
             <div className="w-full hidden lg:flex space-x-2 justify-start items-center">
               <Link href={"/payments"}>
-              <Button className="px-14 ">Buy Now</Button>
+                <Button className="px-14 ">Buy Now</Button>
               </Link>
-            
+
               <Button className="px-14 bg-white  hover:bg-gray-100 border-blue-950 border-2 text-blue-950">
                 Add To Cart
               </Button>
-             
-              
             </div>
           </div>
         </section>
@@ -321,15 +319,13 @@ function Page({ params }) {
         </span>
         <span className="flex text-2xl font-bold items-center space-x-2">
           <Button className="bg-white rounded-3xl p-2">
-            
-              <ShoppingCart color="#10274E" />
-           
+            <ShoppingCart color="#10274E" />
           </Button>
           <Link href={"/payments"}>
             <Button className="bg-white rounded-3xl px-6 text-blue-950 text-sm font-bold">
               Buy Now
             </Button>
-            </Link>
+          </Link>
         </span>
       </footer>
     </main>

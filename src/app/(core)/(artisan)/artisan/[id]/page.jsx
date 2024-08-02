@@ -206,10 +206,10 @@ export default function ArtisanProfile({ params }) {
             </div>
           </div>
         </section>
-        <section className="w-full lg:px-10 lg:py-10 flex flex-col space-y-3 lg:space-y-6 p-5">
-          <h2 className="scroll-m-20 text-2xl lg:text-3xl font-semibold tracking-tight text-left w-full">
+        <section className="w-full lg:px-0 lg:py-10 flex flex-col space-y-3 lg:space-y-6 p-5">
+          <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-center w-full lg:text-4xl">
             Product Gallery
-          </h2>
+          </h3>
           <ImageCollage individualCardData={description} />
         </section>
         <section className="w-full flex flex-col py-4 space-y-4">
@@ -224,7 +224,7 @@ export default function ArtisanProfile({ params }) {
             </CarouselContent>
           </Carousel>
         </section>
-        <section className="flex flex-col w-full p-5 md:px-10 space-y-2">
+        <section className="flex flex-col w-full p-5 md:px-0 space-y-2">
           <h2 className="scroll-m-20 text-2xl lg:text-3xl font-semibold tracking-tight text-left w-full">
             Support The Artisan
           </h2>
