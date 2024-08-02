@@ -51,7 +51,7 @@ export default function Navbar() {
         <div className="flex items-center">
           <Link href={"/"}>
             <Image
-              src="/odopLogo.png"
+              src="/img/ODOP1.png"
               height={100}
               width={100}
               alt="ODOP Logo"

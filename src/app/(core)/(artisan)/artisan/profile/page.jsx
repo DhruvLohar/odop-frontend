@@ -221,38 +221,38 @@ const artisanInfo = [
 ];
 
 export default function ArtisanProfile() {
-
-  const description = artisanInfo.find((artisan) => artisan.title === "Mr. John Doe");
+  const description = artisanInfo.find(
+    (artisan) => artisan.title === "Mr. John Doe"
+  );
 
   return (
-    <>
-      <main className=" flex items-start justify-center lg:space-x-6 mt-4 text-gray-900 ">
-        <section className="xl:flex-[0.7] ">
-          <header className="relative mb-8 w-full">
-            <img
-              className="w-full h-[180px] rounded-3xl object-cover "
-              src="https://cdn.pixabay.com/photo/2022/05/08/16/54/artwork-7182495_1280.jpg"
-              alt="linear gradient backcover"
-            />
+    <main className=" flex items-start justify-center lg:space-x-6 mt-4 text-gray-900 ">
+      <section className="xl:flex-[0.7] ">
+        <header className="relative mb-8 w-full">
+          <img
+            className="w-full h-[180px] rounded-3xl object-cover "
+            src="https://cdn.pixabay.com/photo/2022/05/08/16/54/artwork-7182495_1280.jpg"
+            alt="linear gradient backcover"
+          />
 
-            <div className="lg:px-8">
-              <div className="absolute top-20 lg:top-1/3 left-[25vw] md:left-[40%] lg:left-8">
-                <Avatar className="h-40 w-40 border-8 border-white lg:h-44 lg:w-44">
-                  <AvatarImage
-                    className="object-cover"
-                    src={
-                      "https://media.istockphoto.com/id/990892396/photo/indian-farmer-holding-crop-plant-in-his-wheat-field.jpg?s=612x612&w=0&k=20&c=je5zLlBPEeFplzaSAg_hLryRy2r9AiajSBV_2dd3u_A="
-                    }
-                  />
-                  <AvatarFallback>DL</AvatarFallback>
-                </Avatar>
-              </div>
+          <div className="lg:px-8">
+            <div className="absolute top-20 lg:top-1/3 left-[25vw] md:left-[40%] lg:left-8">
+              <Avatar className="h-40 w-40 border-8 border-white lg:h-44 lg:w-44">
+                <AvatarImage
+                  className="object-cover"
+                  src={
+                    "https://media.istockphoto.com/id/990892396/photo/indian-farmer-holding-crop-plant-in-his-wheat-field.jpg?s=612x612&w=0&k=20&c=je5zLlBPEeFplzaSAg_hLryRy2r9AiajSBV_2dd3u_A="
+                  }
+                />
+                <AvatarFallback>DL</AvatarFallback>
+              </Avatar>
+            </div>
 
-              <div className="lg:pl-52 lg:mt-4 mt-20">
-                <div className="w-full flex flex-col lg:flex-row items-center justify-center">
-                  <h1 className="scroll-m-20 mb-4 lg:mb-2 text-3xl font-extrabold tracking-tight lg:text-4xl">
-                    Suresh Mistry
-                  </h1>
+            <div className="lg:pl-52 lg:mt-4 mt-20">
+              <div className="w-full flex flex-col lg:flex-row items-center justify-center">
+                <h1 className="scroll-m-20 mb-4 lg:mb-2 text-3xl font-extrabold tracking-tight lg:text-4xl">
+                  Suresh Mistry
+                </h1>
 
                 <div className="lg:ml-auto flex flex-row items-center justify-center space-x-4 ml-6">
                   <Link href={"/brochure"}>
