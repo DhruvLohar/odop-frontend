@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { IndianRupee, ShoppingCart } from "lucide-react";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 // Dummy data
 const products = [
@@ -161,11 +161,10 @@ function Page({ params }) {
     setActiveIndex(index);
   };
 
-  const product = products.find((product) => product.title === title);
-  console.log(product);
+  let product = products.find((product) => product.title === title);
 
   if (!product) {
-    return <div>Product not found</div>;
+    product = products.find((product) => product.title === "Wood Craft");
   }
 
   return (
@@ -198,7 +197,16 @@ function Page({ params }) {
                 <Button className="px-14 ">Buy Now</Button>
               </Link>
 
-              <Button className="px-14 bg-white  hover:bg-gray-100 border-blue-950 border-2 text-blue-950">
+              <Button
+                className="px-14 bg-white  hover:bg-gray-100 border-blue-950 border-2 text-blue-950"
+                onClick={() =>
+                  toast.success("Item has been added to cart", {
+                    style: {
+                      color: "black",
+                    },
+                  })
+                }
+              >
                 Add To Cart
               </Button>
             </div>
