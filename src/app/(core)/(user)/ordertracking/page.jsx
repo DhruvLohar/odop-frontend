@@ -12,8 +12,8 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@
 
 export default function Component() {
   return (
-    <div className="flex flex-col min-h-dvh">
-      <main className="flex-1 grid gap-6 md:p-6">
+    <div className="flex flex-col py-5 min-h-dvh">
+      <main className="flex flex-col space-y-6 md:p-6">
         <div className="flex items-center gap-4">
           <div className="relative flex-1">
             <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
