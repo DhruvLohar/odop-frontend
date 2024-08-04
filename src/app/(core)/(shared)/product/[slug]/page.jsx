@@ -326,7 +326,16 @@ function Page({ params }) {
           {product.price}
         </span>
         <span className="flex text-2xl font-bold items-center space-x-2">
-          <Button className="bg-white rounded-3xl p-2">
+          <Button
+            className="bg-white rounded-3xl p-2"
+            onClick={() =>
+              toast.success("Item has been added to cart", {
+                style: {
+                  color: "black",
+                },
+              })
+            }
+          >
             <ShoppingCart color="#10274E" />
           </Button>
           <Link href={"/payments"}>
