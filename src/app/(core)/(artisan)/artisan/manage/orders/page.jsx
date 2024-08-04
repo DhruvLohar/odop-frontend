@@ -210,7 +210,7 @@ export default function ManageOrders() {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full text-primary">
       <h1 className="text-center text-3xl font-extrabold text-gray-900 mb-2 mt-4">
         Manage Orders
       </h1>
