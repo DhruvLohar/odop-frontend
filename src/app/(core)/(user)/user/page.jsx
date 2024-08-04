@@ -1,41 +1,313 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/WIirifaZ5xl
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+"use client";
 
-export default function Component() {
+import ImageCollage from "@/components/custom/ImageCollage";
+import ContactArtisanModal from "@/components/custom/modal/ContactArtisanModal";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { logout } from "@/lib/auth";
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
+import { ExternalLink, IndianRupee } from "lucide-react";
+
+import { AvatarFallback } from "@radix-ui/react-avatar";
+import {
+  Box,
+  EllipsisVertical,
+  Facebook,
+  Instagram,
+  List,
+  LogOut,
+  MapPin,
+  PenTool,
+  Twitter,
+  User,
+} from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import ProductCard from "@/components/custom/ProductCard";
+import InputForm from "@/components/custom/BuyCoffeeInput";
+
+const tipPrices = [50, 100, 200];
+
+function ProfileMenu() {
+  const router = useRouter();
+
+  const routes = [
+    { title: "Edit Profile", Icon: User },
+    { title: "My Orders", Icon: Box, url: "/artisan/manage/orders" },
+    {
+      title: "Manage Products",
+      Icon: PenTool,
+      url: "/artisan/manage/inventory",
+    },
+    {
+      title: "Get in touch requests",
+      Icon: List,
+      url: "/artisan/manage/contact-queries",
+    },
+  ];
+
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 md:p-10">
-      <div className="flex items-center gap-6 mb-8">
-        <div className="relative bg-black h-24 w-24 md:h-32 rounded-full md:w-32">
-          
-        </div>
-        <div className="flex flex-col space-y-4 ">
-          <div className="flex justify-between">
-            <h1 className="text-2xl font-bold text-black md:text-3xl">Jane Smith</h1>
-            <div className="flex space-x-4">
-              <button className="bg-blue-900 h-9 text-white text-sm w-auto px-8 rounded-lg flex justify-center items-center ">
-                View Brochure
-              </button>
-              <button className="bg-blue-900 h-9 text-white text-sm w-auto px-8 rounded-lg flex justify-center items-center ">
-                Contact
-              </button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button>Update Profile</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          {routes.map((item, i) => (
+            <DropdownMenuItem key={i} className="mb-2">
+              <item.Icon className="mr-2 h-4 w-4" />
+              <span>{item.title}</span>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          onClick={async () => {
+            await logout();
+            router.push("/login");
+          }}
+        >
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Log out</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+const artisanInfo = [
+  {
+    title: "Mr. John Doe",
+    profileImage: "/artisanProfileImage1.png",
+    heroImage: "/artisanProfileImage1.png",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, tenetur reprehenderit provident impedit optio delectus voluptates",
+    images: [
+      "/districtArtisanImage1.png",
+      "/districtArtisanImage2.png",
+      "/districtArtisanImage3.png",
+      "/districtArtisanImage4.png",
+    ],
+    feedBacks: [
+      { label: "Products Sold", value: 10 },
+      { label: "Happy Customers", value: 100 },
+      { label: "Happy Customers", value: 100 },
+    ],
+    products: [
+      {
+        id: 1,
+        name: "Wood Craft",
+        location: "Ratnagiri, Maharashtra",
+        price: 200,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 2,
+        name: "Wood Toy",
+        location: "Pune, Maharashtra",
+        price: 50,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+      {
+        id: 3,
+        name: "Wood Tabla",
+        location: "Shimla, Himachal Pradesh",
+        price: 150,
+        imageUrl: "/districtArtisanImage3.png",
+      },
+      {
+        id: 4,
+        name: "Grapes",
+        location: "Nashik, Maharashtra",
+        price: 120,
+        imageUrl: "/districtArtisanImage4.png",
+      },
+      {
+        id: 5,
+        name: "Orange",
+        location: "Nagpur, Maharashtra",
+        price: 80,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 6,
+        name: "Pineapple",
+        location: "Goa",
+        price: 60,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+    ],
+  },
+  {
+    title: "Ms. Jane Doe",
+    profileImage: "/artisanProfileImage2.png",
+    heroImage: "/artisanProfileImage2.png",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, tenetur reprehenderit provident impedit optio delectus voluptates",
+    images: [
+      "/districtArtisanImage1.png",
+      "/districtArtisanImage2.png",
+      "/districtArtisanImage3.png",
+      "/districtArtisanImage4.png",
+    ],
+    feedBacks: [
+      { label: "Products Sold", value: 20 },
+      { label: "Happy Customers", value: 200 },
+      { label: "Happy Customers", value: 200 },
+    ],
+    products: [
+      {
+        id: 1,
+        name: "Wood Craft",
+        location: "Ratnagiri, Maharashtra",
+        price: 200,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 2,
+        name: "Wood Toy",
+        location: "Pune, Maharashtra",
+        price: 50,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+      {
+        id: 3,
+        name: "Wood Tabla",
+        location: "Shimla, Himachal Pradesh",
+        price: 150,
+        imageUrl: "/districtArtisanImage3.png",
+      },
+      {
+        id: 4,
+        name: "Grapes",
+        location: "Nashik, Maharashtra",
+        price: 120,
+        imageUrl: "/districtArtisanImage4.png",
+      },
+      {
+        id: 5,
+        name: "Orange",
+        location: "Nagpur, Maharashtra",
+        price: 80,
+        imageUrl: "/districtArtisanImage1.png",
+      },
+      {
+        id: 6,
+        name: "Pineapple",
+        location: "Goa",
+        price: 60,
+        imageUrl: "/districtArtisanImage2.png",
+      },
+    ],
+  },
+];
+
+export default function ArtisanProfile() {
+  const description = artisanInfo.find(
+    (artisan) => artisan.title === "Mr. John Doe"
+  );
+
+  return (
+    <main className=" flex items-start justify-center lg:space-x-6 mt-4 text-gray-900 ">
+      <section className="xl:flex-[0.7] ">
+        <header className="relative mb-8 w-full">
+          <img
+            className="w-full h-[180px] rounded-3xl object-cover "
+            src="https://cdn.pixabay.com/photo/2022/05/08/16/54/artwork-7182495_1280.jpg"
+            alt="linear gradient backcover"
+          />
+
+          <div className="lg:px-8">
+            <div className="absolute top-20 lg:top-1/3 left-[25vw] md:left-[40%] lg:left-8">
+              <Avatar className="h-40 w-40 border-8 border-white lg:h-44 lg:w-44">
+                <AvatarImage
+                  className="object-cover"
+                  src={
+                    "https://media.istockphoto.com/id/990892396/photo/indian-farmer-holding-crop-plant-in-his-wheat-field.jpg?s=612x612&w=0&k=20&c=je5zLlBPEeFplzaSAg_hLryRy2r9AiajSBV_2dd3u_A="
+                  }
+                />
+                <AvatarFallback>DL</AvatarFallback>
+              </Avatar>
+            </div>
+
+            <div className="lg:pl-52 lg:mt-4 mt-20">
+              <div className="w-full flex flex-col lg:flex-row items-center justify-center">
+                <h1 className="scroll-m-20 mb-4 lg:mb-2 text-3xl font-extrabold tracking-tight lg:text-4xl">
+                  Suresh Mistry
+                </h1>
+
+                <div className="lg:ml-auto flex flex-row items-center justify-center space-x-4">
+                  <ProfileMenu />
+                  <Link href={"/brochure"}>
+                    <Button>Contact</Button>
+                  </Link>
+                </div>
+              </div>
+              <p className="flex items-center justify-center lg:justify-start text-md font-medium text-muted-foreground pt-4 lg:pt-0">
+                <MapPin className="w-4 h-4 mr-2" />
+                Burari, Uttar Pradesh
+              </p>
+              <div className="mt-4 text-md font-medium text-justify lg:text-left">
+                <b className="text-lg mb-2 font-semibold ">About Me</b>
+                <p className="text-muted-foreground text-md font-medium">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat
+                </p>
+              </div>
             </div>
           </div>
-          
-          <p className="text-muted-foreground md:text-lg">
-            Ecommerce Seller at Acme Marketplace. Passionate about providing high-quality products and excellent
-            customer service.
-          </p>
-        </div>
-      </div>
-      <div className="grid gap-6">
-        <div>
-          <h2 className="text-lg text-black font-semibold mb-2">About</h2>
-          <div className="grid gap-2 text-muted-foreground">
+        </header>
+        <div className="flex flex-col justify-center items-center space-y-3 xl:hidden ">
+          <div className="flex flex-col items-start justify-start w-full">
+            <h4 className="font-bold text-lg mb-4">
+              Connect on Social Network
+            </h4>
+            <div className="space-x-4 flex">
+              <Link
+                href={"https://instagram.com/instagram"}
+                className="flex items-center text-md font-medium text-muted-foreground hover:underline"
+              >
+                <Instagram className="w-4 h-4 mr-2" />
+                Instagram
+              </Link>
+              <Link
+                href={"https://instagram.com/instagram"}
+                className="flex items-center text-md font-medium text-muted-foreground hover:underline"
+              >
+                <Facebook className="w-4 h-4 mr-2" />
+                Facebook
+              </Link>
+              <Link
+                href={"https://instagram.com/instagram"}
+                className="flex items-center text-md font-medium text-muted-foreground hover:underline"
+              >
+                <Twitter className="w-4 h-4 mr-2" />
+                Twitter
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-col pb-6 ">
+            <h4 className="font-bold text-lg mb-4 text-primary">Description</h4>
             <div className="flex items-center gap-2">
               <CalendarIcon className="w-5 h-5" />
               <span>Seller since: January 2020</span>
@@ -54,183 +326,69 @@ export default function Component() {
             </div>
           </div>
         </div>
-        <div>
-          <h2 className="text-lg text-black font-semibold mb-2">Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="p-6 border-2 border-gray-100">
-              <CardHeader>
-                <CardTitle>Organic Cotton T-Shirt</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="relative h-40 w-full">
-                  <img
-                    src="/districtArtisanImage1.png"
-                    alt="Product Image"
-                    width={300}
-                    height={300}
-                    className="object-cover rounded-md"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p className="text-muted-foreground">Soft and sustainable organic cotton t-shirt.</p>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="font-semibold">$25.99</span>
-                    <Button variant="outline" size="sm">
-                      Add to Cart
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="p-6 border-2 border-gray-100">
-              <CardHeader>
-                <CardTitle>Handmade Ceramic Vase</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="relative h-40 w-full">
-                  <img
-                    src="/districtArtisanImage1.png"
-                    alt="Product Image"
-                    width={300}
-                    height={300}
-                    className="object-cover rounded-md"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p className="text-muted-foreground">Unique and beautiful handmade ceramic vase.</p>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="font-semibold">$39.99</span>
-                    <Button variant="outline" size="sm">
-                      Add to Cart
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="p-6 border-2 border-gray-100">
-              <CardHeader>
-                <CardTitle>Bamboo Cutting Board</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="relative h-40 w-full">
-                  <img
-                    src="/districtArtisanImage1.png"
-                    alt="Product Image"
-                    width={300}
-                    height={300}
-                    className="object-cover rounded-md"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p className="text-muted-foreground">Durable and eco-friendly bamboo cutting board.</p>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="font-semibold">$19.99</span>
-                    <Button variant="outline" size="sm">
-                      Add to Cart
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="w-full mb-8 lg:text-left text-center">
+          <h3 className="mb-4 scroll-m-20 text-2xl font-semibold tracking-tight">
+            Product Gallery
+          </h3>
+          <div className="w-[90vw] xl:w-[70vw]">
+            <ImageCollage individualCardData={description} />
           </div>
         </div>
+        <div className="w-full mb-8 lg:text-left text-center">
+          <h3 className="mb-4 scroll-m-20 text-2xl font-semibold tracking-tight">
+            More Products by Artisan
+          </h3>
+          <Carousel opts={{ dragFree: true }} className="w-[90vw] xl:w-[70vw]">
+            <CarouselContent className="px-4 space-x-4">
+              {description.products.map((item) => (
+                <ProductCard product={item} key={item.id} />
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+      </section>
+      <aside className="flex-[0.3] pt-4 h-full xl:flex flex-col items-start space-y-8 hidden">
         <div>
-          <h2 className="text-lg text-black font-semibold mb-2">Previous Sales</h2>
-          <div className="grid gap-4 text-muted-foreground">
-            <div>
-              <h3 className="font-medium">Organic Cotton T-Shirt</h3>
-              <p>Sold 250 units in the last 6 months</p>
-            </div>
-            <div>
-              <h3 className="font-medium">Handmade Ceramic Vase</h3>
-              <p>Sold 100 units in the last 3 months</p>
-            </div>
-            <div>
-              <h3 className="font-medium">Bamboo Cutting Board</h3>
-              <p>Sold 150 units in the last 4 months</p>
-            </div>
+          <h4 className="font-bold text-lg mb-4">Connect on Social Network</h4>
+          <div className="space-y-4">
+            <Link
+              href={"https://instagram.com/instagram"}
+              className="flex items-center text-md font-medium text-muted-foreground hover:underline"
+            >
+              <Instagram className="w-4 h-4 mr-2" />
+              Instagram
+            </Link>
+            <Link
+              href={"https://instagram.com/instagram"}
+              className="flex items-center text-md font-medium text-muted-foreground hover:underline"
+            >
+              <Facebook className="w-4 h-4 mr-2" />
+              Facebook
+            </Link>
           </div>
         </div>
-        <div>
-          <h2 className="text-lg text-black font-semibold mb-2">Product Gallery</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div className="relative h-32 w-full">
-              <img
-                src="/districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="/districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
-            <div className="relative h-32 w-full">
-              <img
-                src="districtArtisanImage1.png"
-                alt="Product Image"
-                width={300}
-                height={300}
-                className="object-cover rounded-md"
-              />
-            </div>
+        <div className="grid gap-2 text-muted-foreground">
+          <h4 className="font-bold text-lg mb-4 text-primary">Description</h4>
+          <div className="flex items-center gap-2">
+            <CalendarIcon className="w-5 h-5" />
+            <span>Seller since: January 2020</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <LocateIcon className="w-5 h-5" />
+            <span>Based in Los Angeles, CA</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <BriefcaseIcon className="w-5 h-5" />
+            <span>Ecommerce Seller at Acme Marketplace</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <HeartIcon className="w-5 h-5" />
+            <span>Interests: Fashion, Home Decor, Sustainability</span>
           </div>
         </div>
-      </div>
-    </div>
-  )
+      </aside>
+    </main>
+  );
 }
 
 function BriefcaseIcon(props) {
@@ -250,9 +408,8 @@ function BriefcaseIcon(props) {
       <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       <rect width="20" height="14" x="2" y="6" rx="2" />
     </svg>
-  )
+  );
 }
-
 
 function CalendarIcon(props) {
   return (
@@ -273,9 +430,8 @@ function CalendarIcon(props) {
       <rect width="18" height="18" x="3" y="4" rx="2" />
       <path d="M3 10h18" />
     </svg>
-  )
+  );
 }
-
 
 function HeartIcon(props) {
   return (
@@ -293,9 +449,8 @@ function HeartIcon(props) {
     >
       <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
     </svg>
-  )
+  );
 }
-
 
 function LocateIcon(props) {
   return (
@@ -317,9 +472,8 @@ function LocateIcon(props) {
       <line x1="12" x2="12" y1="19" y2="22" />
       <circle cx="12" cy="12" r="7" />
     </svg>
-  )
+  );
 }
-
 
 function XIcon(props) {
   return (
@@ -338,5 +492,5 @@ function XIcon(props) {
       <path d="M18 6 6 18" />
       <path d="m6 6 12 12" />
     </svg>
-  )
+  );
 }
