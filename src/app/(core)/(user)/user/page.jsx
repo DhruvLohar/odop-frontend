@@ -23,6 +23,8 @@ import {
 import { logout } from "@/lib/auth";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import { ExternalLink, IndianRupee } from "lucide-react";
+import { Card,CardContent } from "@/components/ui/card";
+
 
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import {
@@ -37,10 +39,10 @@ import {
   Twitter,
   User,
 } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ProductCard from "@/components/custom/ProductCard";
 import InputForm from "@/components/custom/BuyCoffeeInput";
+import Link from "next/link";
 
 const tipPrices = [50, 100, 200];
 
@@ -256,9 +258,7 @@ export default function ArtisanProfile() {
 
                 <div className="lg:ml-auto flex flex-row items-center justify-center space-x-4">
                   <ProfileMenu />
-                  <Link href={"/brochure"}>
-                    <Button>Contact</Button>
-                  </Link>
+                  
                 </div>
               </div>
               <p className="flex items-center justify-center lg:justify-start text-md font-medium text-muted-foreground pt-4 lg:pt-0">
@@ -277,115 +277,49 @@ export default function ArtisanProfile() {
             </div>
           </div>
         </header>
-        <div className="flex flex-col justify-center items-center space-y-3 xl:hidden ">
-          <div className="flex flex-col items-start justify-start w-full">
-            <h4 className="font-bold text-lg mb-4">
-              Connect on Social Network
-            </h4>
-            <div className="space-x-4 flex">
-              <Link
-                href={"https://instagram.com/instagram"}
-                className="flex items-center text-md font-medium text-muted-foreground hover:underline"
-              >
-                <Instagram className="w-4 h-4 mr-2" />
-                Instagram
-              </Link>
-              <Link
-                href={"https://instagram.com/instagram"}
-                className="flex items-center text-md font-medium text-muted-foreground hover:underline"
-              >
-                <Facebook className="w-4 h-4 mr-2" />
-                Facebook
-              </Link>
-              <Link
-                href={"https://instagram.com/instagram"}
-                className="flex items-center text-md font-medium text-muted-foreground hover:underline"
-              >
-                <Twitter className="w-4 h-4 mr-2" />
-                Twitter
-              </Link>
-            </div>
-          </div>
-          <div className="flex flex-col pb-6 ">
-            <h4 className="font-bold text-lg mb-4 text-primary">Description</h4>
-            <div className="flex items-center gap-2">
-              <CalendarIcon className="w-5 h-5" />
-              <span>Seller since: January 2020</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <LocateIcon className="w-5 h-5" />
-              <span>Based in Los Angeles, CA</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <BriefcaseIcon className="w-5 h-5" />
-              <span>Ecommerce Seller at Acme Marketplace</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <HeartIcon className="w-5 h-5" />
-              <span>Interests: Fashion, Home Decor, Sustainability</span>
-            </div>
-          </div>
+        <div className="flex flex-col justify-center items-center mb-5 space-y-3 xl:hidden ">
+          <h2 className="font-semibold text-xl">Your current orders</h2>
+        <Card className="w-full max-w-sm">
+      <CardContent className="grid gap-2 p-4">
+        <div className="flex items-center justify-between">
+          <div className="text-lg font-medium">Order #3102</div>
+          <div className="text-sm text-muted-foreground">June 23, 2022</div>
         </div>
-        <div className="w-full mb-8 lg:text-left text-center">
-          <h3 className="mb-4 scroll-m-20 text-2xl font-semibold tracking-tight">
-            Product Gallery
-          </h3>
-          <div className="w-[90vw] xl:w-[70vw]">
-            <ImageCollage individualCardData={description} />
-          </div>
+        <div className="flex items-center justify-between">
+          <div className="text-sm text-muted-foreground">Seller: Acme Inc</div>
+          <div className="text-sm text-muted-foreground">Sophia Anderson</div>
         </div>
-        <div className="w-full mb-8 lg:text-left text-center">
-          <h3 className="mb-4 scroll-m-20 text-2xl font-semibold tracking-tight">
-            More Products by Artisan
-          </h3>
-          <Carousel opts={{ dragFree: true }} className="w-[90vw] xl:w-[70vw]">
-            <CarouselContent className="px-4 space-x-4">
-              {description.products.map((item) => (
-                <ProductCard product={item} key={item.id} />
-              ))}
-            </CarouselContent>
-          </Carousel>
+        <Link href={"/ordertracking"}>
+        <Button variant="outline" className="w-full">
+          View order details
+        </Button>
+        </Link>
+        
+      </CardContent>
+    </Card>
         </div>
+        
+
       </section>
       <aside className="flex-[0.3] pt-4 h-full xl:flex flex-col items-start space-y-8 hidden">
-        <div>
-          <h4 className="font-bold text-lg mb-4">Connect on Social Network</h4>
-          <div className="space-y-4">
-            <Link
-              href={"https://instagram.com/instagram"}
-              className="flex items-center text-md font-medium text-muted-foreground hover:underline"
-            >
-              <Instagram className="w-4 h-4 mr-2" />
-              Instagram
-            </Link>
-            <Link
-              href={"https://instagram.com/instagram"}
-              className="flex items-center text-md font-medium text-muted-foreground hover:underline"
-            >
-              <Facebook className="w-4 h-4 mr-2" />
-              Facebook
-            </Link>
-          </div>
+        <h2 className="font-semibold">Your Current Orders</h2>
+      <Card className="w-full max-w-sm">
+      <CardContent className="grid gap-2 p-4">
+        <div className="flex items-center justify-between">
+          <div className="text-lg font-medium">Order #3102</div>
+          <div className="text-sm text-muted-foreground">June 23, 2022</div>
         </div>
-        <div className="grid gap-2 text-muted-foreground">
-          <h4 className="font-bold text-lg mb-4 text-primary">Description</h4>
-          <div className="flex items-center gap-2">
-            <CalendarIcon className="w-5 h-5" />
-            <span>Seller since: January 2020</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <LocateIcon className="w-5 h-5" />
-            <span>Based in Los Angeles, CA</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <BriefcaseIcon className="w-5 h-5" />
-            <span>Ecommerce Seller at Acme Marketplace</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <HeartIcon className="w-5 h-5" />
-            <span>Interests: Fashion, Home Decor, Sustainability</span>
-          </div>
+        <div className="flex items-center justify-between">
+          <div className="text-sm text-muted-foreground">Seller: Acme Inc</div>
+          <div className="text-sm text-muted-foreground">Sophia Anderson</div>
         </div>
+        <Link href={"/ordertracking"}>
+        <Button variant="outline" className="w-full">
+          View order details
+        </Button>
+        </Link>
+      </CardContent>
+    </Card>
       </aside>
     </main>
   );
